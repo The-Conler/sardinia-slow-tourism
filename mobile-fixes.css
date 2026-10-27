@@ -207,3 +207,35 @@ body:has(.navigation-drawer) .site-header.site-header--glass.is-over-light { top
 }
 .page-content { overscroll-behavior-y: none; }
 
+
+/* === Audit mobile 2 (202610271915) — solo mobile, desktop invariato === */
+@media (max-width: 760px) {
+  /* header: sulle sezioni chiare il logo non galleggia più sul contenuto */
+  [data-side-reveal-navigation] .site-header.site-header--glass.is-over-light,
+  body:has(.navigation-drawer) .site-header.site-header--glass.is-over-light {
+    background: rgba(255,255,255,.9) !important;
+    -webkit-backdrop-filter: blur(10px) !important; backdrop-filter: blur(10px) !important;
+    box-shadow: 0 1px 0 rgba(21,18,15,.06) !important;
+  }
+  .site-header.site-header--glass.m-over-light {
+    background: rgba(255,255,255,.9) !important;
+    -webkit-backdrop-filter: blur(10px) !important; backdrop-filter: blur(10px) !important;
+    box-shadow: 0 1px 0 rgba(21,18,15,.06) !important;
+  }
+  .detail-body .site-header--glass.m-over-light .brand,
+  .detail-body .site-header--glass.m-over-light .brand * { color: #15120f !important; }
+  /* partner hero: menu sezioni su una riga, sopra la linea, senza coprire l'intro */
+  .pth__nav { flex-wrap: nowrap; justify-content: space-between; column-gap: 8px; top: calc(50% - 26px); }
+  .pth__nav a { font-size: 10px; letter-spacing: .06em; gap: 5px; }
+  .pth__nav a::before { width: 5px; height: 5px; }
+  .pth__intro { top: calc(50% + 18px); max-width: 78vw; }
+  .pth__copy { top: calc(50% + 100px); }
+  /* timeline: il nome grande al centro copriva l'elenco partner; il paese è già nel riquadro in basso */
+  .ptl-labels { display: none; }
+  /* home: meno vuoto tra "13 paesi" e "Esplora le esperienze" */
+  .villages-explore { padding-bottom: 20px; }
+  .sectors-section { padding-top: 28px; }
+  /* tap target social nel menu */
+  [data-side-reveal-navigation] .socials a,
+  .navigation-drawer .panel-foot .socials a { min-height: 44px; display: flex; align-items: center; }
+}

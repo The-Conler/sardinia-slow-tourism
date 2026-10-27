@@ -511,7 +511,7 @@ if (window.gsap && window.ScrollTrigger) {
     });
   });
 
-  gsap.utils.toArray(".footer-grid > section, .footer-bottom").forEach((item, index) => {
+  gsap.utils.toArray(MOB ? ".footer-grid > section" : ".footer-grid > section, .footer-bottom").forEach((item, index) => {
     gsap.from(item, {
       y: 28,
       autoAlpha: 0,
@@ -1237,4 +1237,21 @@ else sideRevealNavigation();
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
   else run();
+})();
+
+/* Mobile (202610271915): header leggibile sulle pagine interne quando si esce dalla foto iniziale */
+(function initMobileDetailHeader() {
+  const body = document.body;
+  if (!body.classList.contains("detail-body") || body.classList.contains("partner-body") || body.classList.contains("contact-body")) return;
+  const header = document.querySelector(".site-header");
+  const hero = document.querySelector(".detail-landing, .destinations-hero, .detail-hero");
+  if (!header || !hero) return;
+  const mq = window.matchMedia("(max-width: 760px)");
+  const update = () => {
+    const on = mq.matches && hero.getBoundingClientRect().bottom <= Math.max(header.offsetHeight * 0.55, 40);
+    header.classList.toggle("m-over-light", on);
+  };
+  update();
+  (document.querySelector(".page-content") || window).addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
 })();
