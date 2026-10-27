@@ -1,0 +1,666 @@
+/* Navigation Drawer resource — Sardinia Slow Tourism */
+.navigation-drawer,
+.navigation-drawer *,
+.navigation-drawer *::before,
+.navigation-drawer *::after {
+  box-sizing: border-box;
+}
+
+.navigation-drawer {
+  --color-bg: #fff;
+  --color-drawer: #fff;
+  --color-text: #111;
+  --color-text-muted: rgb(156, 156, 156);
+  --color-border: rgba(17, 17, 17, 0.16);
+  --drawer-ease: cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  color: var(--color-text);
+  pointer-events: none;
+}
+
+.navigation-drawer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navigation-drawer button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.navigation-drawer svg {
+  display: block;
+  max-width: 100%;
+}
+
+.nav-toggle {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  right: 16px;
+  width: 100px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  pointer-events: auto;
+  transition:
+    width 0.6s var(--drawer-ease),
+    color 0.4s var(--drawer-ease),
+    background-color 0.4s var(--drawer-ease),
+    border-color 0.4s var(--drawer-ease);
+}
+
+.nav-toggle .toggle-label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  font-size: 16px;
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: opacity 0.2s var(--drawer-ease);
+}
+
+.nav-toggle .label-wrap {
+  display: block;
+  height: 1em;
+  overflow: hidden;
+}
+
+.nav-toggle .label {
+  display: block;
+  line-height: 1;
+  transition: transform 0.6s var(--drawer-ease);
+}
+
+.nav-toggle .label span {
+  display: block;
+}
+
+.nav-toggle .toggle-mark {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center;
+  transition: transform 0.6s var(--drawer-ease);
+}
+
+.nav-toggle .toggle-mark svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (hover: hover) {
+  .nav-toggle:hover .toggle-label .label {
+    transform: translateY(-1em);
+  }
+
+  .nav-toggle:hover .toggle-mark {
+    transform: translateY(-50%) rotate(135deg);
+  }
+}
+
+.drawer-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.5);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.panel {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  max-width: 100%;
+  padding: 160px 20px 22px 28px;
+  background: var(--color-drawer);
+  border-radius: 24px;
+  clip-path: inset(0 -1px 0 100% round 24px);
+  pointer-events: none;
+  transition: clip-path 0.6s var(--drawer-ease);
+  will-change: clip-path;
+}
+
+.eyebrow {
+  position: relative;
+  min-height: 1.2em;
+  margin: 0 0 32px;
+  padding-inline: 0;
+  overflow: hidden;
+  border-radius: 0;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: none;
+}
+
+.eyebrow span {
+  display: block;
+  transform: translateY(100%);
+}
+
+.link-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: -4px;
+  font-size: 52px;
+  line-height: 1.1;
+}
+
+[data-drawer-item] {
+  position: relative;
+  width: 100%;
+  margin-left: -8px;
+  padding-inline: 8px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+[data-drawer-item]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-text);
+  border-radius: 20px;
+  transform: translate(0, 101%);
+  transition: transform 0.8s var(--drawer-ease);
+}
+
+[data-drawer-item] > .item-reveal {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 0.8s var(--drawer-ease);
+}
+
+.item-label {
+  display: block;
+  padding-bottom: 3px;
+  text-shadow: 0 1em 0 white;
+  transition: transform 0.8s var(--drawer-ease);
+}
+
+.chevron {
+  font-size: 28px;
+  line-height: 1;
+  transition: transform 0.6s var(--drawer-ease);
+}
+
+.chevron svg {
+  width: 1em;
+  height: 1em;
+}
+
+.sub-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    grid-template-rows 0.6s var(--drawer-ease),
+    opacity 0.2s ease,
+    visibility 0s linear 0.6s;
+}
+
+.sub-list-mask {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sub-list-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 0 10px 4px;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.6s var(--drawer-ease);
+}
+
+.sub-list a {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  max-width: 100%;
+  padding: 3px 12px;
+  color: rgb(199, 199, 199);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 18px;
+  line-height: 1.2;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.service-block:hover .sub-list,
+.service-block:has(:focus-visible) .sub-list {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    grid-template-rows 0.6s var(--drawer-ease),
+    opacity 0.2s ease,
+    visibility 0s linear;
+}
+
+.service-block:hover .sub-list-items,
+.service-block:has(:focus-visible) .sub-list-items {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.12s;
+}
+
+.service-block:hover .chevron,
+.service-block:has(:focus-visible) .chevron {
+  transform: translateY(2px) rotate(-180deg);
+  transition:
+    transform 0.6s var(--drawer-ease),
+    color 0.3s ease-out 0.1s;
+}
+
+.panel-line {
+  width: 100%;
+  height: 1px;
+  margin-block: 40px;
+  background: var(--color-border);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 1.2s var(--drawer-ease);
+}
+
+.panel-foot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  height: 100%;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.socials a {
+  width: max-content;
+  border-radius: 14px;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.socials a::before {
+  border-radius: 14px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cta-reveal {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  padding-inline: 0;
+  overflow: hidden;
+}
+
+.cta-reveal::before {
+  content: none;
+}
+
+.cta-reveal > .item-reveal {
+  display: block;
+}
+
+.navigation-drawer .button-02 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  color: var(--color-bg);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.navigation-drawer .button-02 .inner,
+.navigation-drawer .button-02 .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background: var(--color-text);
+  border-radius: 20px;
+  text-wrap: nowrap;
+  transition: all 0.6s var(--drawer-ease);
+}
+
+.navigation-drawer .button-02 .inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-inline: 28px;
+}
+
+.navigation-drawer .button-02 .label-wrap {
+  display: block;
+  height: 1.1em;
+  overflow: hidden;
+}
+
+.navigation-drawer .button-02 .label {
+  display: block;
+  line-height: 1.1;
+  text-shadow: 0 1.12em 0 currentColor;
+  transition: transform 0.6s var(--drawer-ease);
+}
+
+.navigation-drawer .button-02 .circle {
+  position: absolute;
+  right: 0;
+  width: 48px;
+  scale: 0;
+  transform-origin: left center;
+}
+
+.navigation-drawer .button-02 .circle span {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  transform: translateX(-100%) rotate(-90deg);
+  transition: all 0.3s var(--drawer-ease) 0.1s;
+}
+
+.navigation-drawer .button-02 .circle svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (hover: hover) {
+  .navigation-drawer .button-02:hover .inner {
+    width: calc(100% - 52px);
+  }
+
+  .navigation-drawer .button-02:hover .label {
+    transform: translateY(-1.12em);
+  }
+
+  .navigation-drawer .button-02:hover .circle {
+    scale: 1;
+  }
+
+  .navigation-drawer .button-02:hover .circle span {
+    transform: translateX(0) rotate(-90deg);
+  }
+}
+
+.navigation-drawer[data-open="true"] .eyebrow span {
+  transform: translateY(0);
+}
+
+.navigation-drawer[data-open="true"] .nav-toggle {
+  width: 44px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+
+@media (hover: hover) {
+  .navigation-drawer[data-open="true"] .nav-toggle:hover {
+    background: #333;
+  }
+
+  .navigation-drawer[data-open="true"] .nav-toggle:hover .toggle-mark {
+    transform: translateY(-50%) rotate(90deg);
+  }
+}
+
+.navigation-drawer[data-open="true"] .toggle-label {
+  opacity: 0;
+}
+
+.navigation-drawer[data-open="true"] .toggle-mark {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.navigation-drawer[data-open="true"] .drawer-layer,
+.navigation-drawer[data-open="true"] .shade,
+.navigation-drawer[data-open="true"] .panel {
+  pointer-events: auto;
+}
+
+.navigation-drawer[data-open="true"] .shade {
+  opacity: 1;
+}
+
+.navigation-drawer[data-open="true"] .panel {
+  clip-path: inset(0 round 24px);
+}
+
+.navigation-drawer[data-open="true"] [data-drawer-item] > .item-reveal {
+  transform: translateY(0);
+}
+
+.navigation-drawer[data-open="true"] [data-drawer-item]:nth-child(1) > .item-reveal {
+  transition-delay: 0.25s;
+}
+
+.navigation-drawer[data-open="true"] [data-drawer-item]:nth-child(2) > .item-reveal {
+  transition-delay: 0.3s;
+}
+
+.navigation-drawer[data-open="true"] [data-drawer-item]:nth-child(3) > .item-reveal {
+  transition-delay: 0.35s;
+}
+
+.navigation-drawer[data-open="true"] [data-drawer-item]:nth-child(4) > .item-reveal {
+  transition-delay: 0.4s;
+}
+
+.navigation-drawer[data-open="true"] [data-drawer-item]:nth-child(5) > .item-reveal {
+  transition-delay: 0.45s;
+}
+
+.navigation-drawer[data-open="true"] [data-drawer-item]:nth-child(6) > .item-reveal {
+  transition-delay: 0.5s;
+}
+
+@media (hover: hover) {
+  .navigation-drawer[data-open="true"] [data-drawer-item]:hover::before {
+    transform: translateY(0);
+  }
+
+  .navigation-drawer[data-open="true"] [data-drawer-item]:hover .item-label {
+    transform: translateY(-1em);
+  }
+
+  .navigation-drawer[data-open="true"] [data-drawer-item]:hover .chevron {
+    color: var(--color-bg);
+  }
+
+  .sub-list a:hover {
+    color: white;
+  }
+}
+
+.navigation-drawer[data-open="true"] .panel-line {
+  transform: scaleX(1);
+  transition-delay: 0.2s;
+}
+
+/* Hide hero social rail while drawer is open */
+body:has(.navigation-drawer[data-open="true"]) .hero-rail {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    top: 12px;
+    right: 12px;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+  }
+
+  .panel {
+    inset: 4px;
+    width: calc(100% - 8px);
+    max-width: none;
+    padding: 100px 16px 20px;
+  }
+
+  .link-row {
+    font-size: 40px;
+  }
+
+  .cta-reveal {
+    width: 100%;
+  }
+
+  .socials a {
+    font-size: 20px;
+  }
+}
+
+
+/* Page scroll shell (was scoped to [data-side-reveal-navigation]; drawer needs the same) */
+html:has(.navigation-drawer),
+body:has(.navigation-drawer) {
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  margin: 0;
+}
+body:has(.navigation-drawer) .page {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  background: #ffffff;
+}
+body:has(.navigation-drawer) .page-content {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  background: var(--bg, #ffffff);
+}
+body:has(.navigation-drawer[data-open="true"]) .page-content {
+  overflow-y: hidden;
+}
+body:has(.navigation-drawer) .site-header.site-header--glass,
+body:has(.navigation-drawer) .site-header.site-header--glass.is-over-light {
+  position: sticky;
+  inset: 0 0 auto 0;
+  margin-bottom: -78px;
+  z-index: 100;
+  pointer-events: none;
+}
+body:has(.navigation-drawer) .site-header .brand--center {
+  pointer-events: auto;
+}
+
+/* Transparent glass when using drawer — Menu sits in the drawer layer */
+body:has(.navigation-drawer) .site-header.site-header--glass,
+body:has(.navigation-drawer) .site-header.site-header--glass.is-over-light {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Contattaci CTA left-aligned with socials */
+.navigation-drawer .panel-foot .wrapper {
+  justify-content: flex-start;
+}
+.navigation-drawer .cta-reveal {
+  width: auto;
+  max-width: 100%;
+}
+.navigation-drawer .button-02.drawer-cta {
+  width: fit-content;
+  min-width: 180px;
+}
+
+/* White Menu pill on every page (dark heroes need contrast) */
+.navigation-drawer .nav-toggle {
+  background: #fff !important;
+  color: #111 !important;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+  border: 0;
+}
+.navigation-drawer[data-open="true"] .nav-toggle {
+  background: #111 !important;
+  color: #fff !important;
+  box-shadow: none;
+}
+
+/* Partner timeline pages: keep black behind sticky header (no white/black strip) */
+body.partner-body:has(.navigation-drawer) .page,
+body.partner-body:has(.navigation-drawer) .page-content {
+  background: #000;
+}
+body.partner-body .site-header.site-header--glass .brand--center,
+body.partner-body .site-header.site-header--glass .brand__sub {
+  color: #fff;
+}

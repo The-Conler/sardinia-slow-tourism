@@ -1,0 +1,8 @@
+_backup_*/
+.DS_Store
+**/.DS_Store
+backups/
+test-results/
+.claude/
+*.tgz
+consulenza-risposte-modulo-1.pdf

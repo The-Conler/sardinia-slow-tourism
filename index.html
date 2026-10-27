@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="it" style="--top-color:#6b84a4">
+  <head>
+    <link rel="stylesheet" href="./site-gate.css?v=202610271850" />
+    <script src="./site-gate.js?v=202610271850"></script>
+    <script>
+      document.documentElement.classList.add("js-reveal");
+      setTimeout(function () {
+        document.documentElement.classList.add("js-reveal-done");
+      }, 4500);
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#6b84a4" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Sardinia Slow Tourism | Curated Sardinia Travel Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=202610231605" />
+    <link rel="stylesheet" href="./navigation-drawer.css?v=202610152005" />
+    <link rel="stylesheet" href="./sectors.css?v=202610151635" />
+    <link rel="stylesheet" href="./village-arc.css?v=202610152210" />
+      <style id="sectors-page-styles">
+
+.sectors-section {
+  background: #fff;
+  padding: 72px 40px 88px;
+}
+
+.sectors-intro {
+  max-width: min(1100px, 100%);
+  margin: 0 auto 40px;
+  text-align: center;
+  color: #1a1714;
+}
+
+.sectors-intro h2 {
+  margin: 0 0 14px;
+  font-family: "Bodoni Moda", "Cormorant Garamond", serif;
+  font-size: clamp(1.55rem, 2.6vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: #1a1714;
+  white-space: nowrap;
+}
+
+.sectors-intro p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.sectors-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+a.sector-card {
+  --c1: #2f8f74;
+  --c2: #1f6a55;
+  position: relative;
+  isolation: isolate;
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  aspect-ratio: 5 / 7;
+  overflow: hidden;
+  border-radius: 28px;
+  color: #fff !important;
+  text-decoration: none !important;
+  background: #fff;
+  transition: border-radius 0.35s ease, transform 0.35s ease;
+}
+
+a.sector-card.sector-card--green { --c1: #3a9b7e; --c2: #216853; }
+a.sector-card.sector-card--blue { --c1: #4aa6cd; --c2: #2a7aa3; }
+a.sector-card.sector-card--coral { --c1: #e79079; --c2: #cf6a52; }
+a.sector-card.sector-card--gold { --c1: #d7a94f; --c2: #b6842f; }
+a.sector-card.sector-card--purple { --c1: #9a7bc8; --c2: #6f4fa0; }
+
+.sector-card__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--sector-img);
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  transition: opacity 0.35s ease, transform 0.45s ease;
+}
+
+.sector-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.2) 0%, rgba(11,11,11,0.55) 55%, rgba(11,11,11,0.82) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(11, 11, 11, 0.15) 0%,
+    rgba(11, 11, 11, 0.35) 35%,
+    color-mix(in srgb, var(--c2) 78%, #000) 100%
+  );
+}
+
+.sector-card__wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.72) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--c1) 55%, transparent) 45%,
+    color-mix(in srgb, var(--c2) 88%, #000) 100%
+  );
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.sector-card__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: clamp(18px, 1.4vw, 28px) clamp(16px, 1.4vw, 24px) clamp(22px, 2.2vw, 32px) clamp(18px, 1.6vw, 28px);
+  box-sizing: border-box;
+}
+
+.sector-card__title {
+  margin: 0 0 20px;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(20px, 1.6vw, 32px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.sector-card__text {
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(13px, 0.95vw, 16px);
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+}
+
+.sector-card__btn {
+  margin-top: auto;
+  align-self: flex-start;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #111;
+  box-shadow: none;
+  text-decoration: none !important;
+  overflow: visible;
+}
+
+@media (hover: hover) {
+  a.sector-card:hover {
+    border-radius: 0 88px;
+    transform: translateY(-4px);
+  }
+  a.sector-card:hover .sector-card__media { transform: scale(1.04); }
+  a.sector-card:hover .sector-card__btn { transform: none; }
+}
+
+@media (max-width: 1100px) {
+  .sectors-section { padding: 56px 20px 64px; }
+  .sectors-grid { flex-wrap: wrap; }
+  a.sector-card {
+    flex: 1 1 calc(33.333% - 16px);
+    max-width: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .sectors-grid { gap: 14px; flex-wrap: wrap; }
+  a.sector-card {
+    flex: 1 1 calc(50% - 14px);
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 480px) {
+  a.sector-card {
+    flex: 1 1 100%;
+  }
+}
+
+    </style>
+      <style id="hero-critical-filefix">
+/* Critical hero (Hero 01) — Safari file:// needs HEIGHT so abspos media has a definite containing block. No !important on clip-path/visibility (GSAP owns those). */
+.page-home .hero-01 {
+  position: relative !important;
+  isolation: isolate !important;
+  z-index: 1 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  height: 100svh !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  min-height: 100svh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #0e1617 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.page-home .hero-01__media { position: absolute !important; inset: 0 !important; z-index: 0 !important; width: 100% !important; height: 100% !important; overflow: hidden !important; }
+.page-home .hero-01__image { position: absolute !important; inset: 0 !important; display: block !important; width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover !important; object-position: center 40% !important; }
+.page-home .hero-01__overlay { position: absolute !important; inset: 0 !important; pointer-events: none !important; }
+.page-home .hero-01__content { position: relative !important; z-index: 2 !important; flex: 1 1 auto !important; min-height: 0 !important; }
+.page-home .hero-partners {
+  position: relative !important;
+  left: auto !important; right: auto !important; bottom: auto !important;
+  z-index: 3 !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  padding: 14px 0 20px !important;
+  pointer-events: none !important;
+}
+.page-home .villages-explore { position: relative !important; z-index: 0 !important; }
+    
+/* FORCE villages visible in critical */
+.page-home .villages-explore,
+.page-home .villages-scape,
+.page-home .villages-explore__intro,
+.page-home .villages-explore__tags {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+</style>
+  
+<style id="nav-toggle-pill">
+.page-home .navigation-drawer .nav-toggle {
+  background: #fff !important;
+  color: #111 !important;
+  box-shadow: 0 2px 14px rgba(0,0,0,.12);
+}
+.page-home .navigation-drawer[data-open="true"] .nav-toggle {
+  background: #111 !important;
+  color: #fff !important;
+}
+</style>
+
+<style id="village-arc-nf">
+.page-home .hero-01__content h1.hero-statement {
+  max-width: min(28ch, 92vw) !important;
+}
+.page-home .hero-01__content h1.hero-statement .hero-statement__line {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+.nf { display: flex; align-items: center; gap: 16px; }
+.nf-stat { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.nf-number {
+  display: inline-block;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  line-height: 0.9;
+  --number-flow-mask-height: 0.12em;
+  --number-flow-mask-width: 0.18em;
+}
+.village-arc__stat {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(16px, 3.5vw, 48px);
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+.village-arc__nf {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: clamp(48px, 8vw, 88px);
+  letter-spacing: -0.04em;
+  color: #15120f;
+}
+.village-arc__stat-label {
+  font: 500 clamp(13px, 1.3vw, 16px)/1.3 "Manrope", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+}
+</style>
+    <link rel="stylesheet" href="./mobile-fixes.css?v=202610271850" />
+  </head>
+  <body class="page-home">
+
+        <div class="navigation-drawer" data-drawer>
+      <button
+        class="nav-toggle"
+        type="button"
+        data-drawer-toggle
+        aria-controls="resource-drawer"
+        aria-expanded="false"
+        aria-label="Apri menu"
+      >
+        <span class="toggle-label">
+          <span class="label-wrap">
+            <span class="label">
+              <span>Menu</span>
+              <span aria-hidden="true">Menu</span>
+            </span>
+          </span>
+        </span>
+        <span class="toggle-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </span>
+      </button>
+
+      <div class="drawer-layer">
+        <button
+          class="shade"
+          type="button"
+          data-drawer-backdrop
+          data-drawer-close
+          tabindex="-1"
+          aria-label="Chiudi navigazione"
+        ></button>
+
+        <aside
+          class="panel"
+          id="resource-drawer"
+          data-drawer-panel
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="drawer-title"
+          aria-hidden="true"
+        >
+          <p class="eyebrow" id="drawer-title" data-drawer-item>
+            <span class="item-reveal">Navigazione</span>
+          </p>
+
+          <nav class="link-stack" aria-label="Menu principale">
+            <a class="link-row" data-drawer-item href="./index.html">
+              <span class="item-reveal">
+                <span class="item-label">Home</span>
+              </span>
+            </a>
+            <a class="link-row" data-drawer-item href="./destinazioni.html">
+              <span class="item-reveal">
+                <span class="item-label">Esperienze</span>
+              </span>
+            </a>
+            <a class="link-row" data-drawer-item href="./partner.html">
+              <span class="item-reveal">
+                <span class="item-label">Destinazioni</span>
+              </span>
+            </a>
+            <a class="link-row" data-drawer-item href="./contact.html">
+              <span class="item-reveal">
+                <span class="item-label">Contatti</span>
+              </span>
+            </a>
+          </nav>
+
+          <div class="panel-line" aria-hidden="true"></div>
+
+          <div class="panel-foot">
+            <div class="socials" aria-label="Social">
+              <a data-drawer-item href="#" aria-disabled="true">
+                <span class="item-reveal">
+                  <span class="item-label"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" style="display:inline-block;vertical-align:-3px;margin-right:10px"><path fill="currentColor" d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm5.3-8.2a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM12 3.5c-2.3 0-2.6.01-3.5.05a5.3 5.3 0 0 0-3.5 1.3 5.3 5.3 0 0 0-1.3 3.5c-.04.9-.05 1.2-.05 3.5s.01 2.6.05 3.5a5.3 5.3 0 0 0 1.3 3.5 5.3 5.3 0 0 0 3.5 1.3c.9.04 1.2.05 3.5.05s2.6-.01 3.5-.05a5.3 5.3 0 0 0 3.5-1.3 5.3 5.3 0 0 0 1.3-3.5c.04-.9.05-1.2.05-3.5s-.01-2.6-.05-3.5a5.3 5.3 0 0 0-1.3-3.5 5.3 5.3 0 0 0-3.5-1.3c-.9-.04-1.2-.05-3.5-.05Zm0 1.5c2.26 0 2.53.01 3.42.05a3.8 3.8 0 0 1 2.53 2.53c.04.89.05 1.16.05 3.42s-.01 2.53-.05 3.42a3.8 3.8 0 0 1-2.53 2.53c-.89.04-1.16.05-3.42.05s-2.53-.01-3.42-.05a3.8 3.8 0 0 1-2.53-2.53c-.04-.89-.05-1.16-.05-3.42s.01-2.53.05-3.42a3.8 3.8 0 0 1 2.53-2.53c.89-.04 1.16-.05 3.42-.05Z"/></svg>Instagram</span>
+                </span>
+              </a>
+              <a data-drawer-item href="#" aria-disabled="true">
+                <span class="item-reveal">
+                  <span class="item-label"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" style="display:inline-block;vertical-align:-3px;margin-right:10px"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02Zm-7.01 15.24h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.53 3.69-8.21 8.23-8.21 2.2 0 4.26.86 5.81 2.41a8.16 8.16 0 0 1 2.4 5.81c0 4.53-3.69 8.23-8.21 8.23Zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74 1.49.64 2.08.7 2.83.59.43-.07 1.46-.6 1.67-1.17.21-.58.21-1.07.14-1.17-.06-.11-.23-.17-.48-.29Z"/></svg>WhatsApp</span>
+                </span>
+              </a>
+              <a data-drawer-item href="#" aria-disabled="true">
+                <span class="item-reveal">
+                  <span class="item-label"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" style="display:inline-block;vertical-align:-3px;margin-right:10px"><path fill="currentColor" d="M14.5 9.5V7.8c0-.6.1-1 1-1h1.5V4h-2.1C12.1 4 11 5.4 11 7.6v1.9H9v2.7h2V20h3.5v-7.8h2.3l.4-2.7h-2.7Z"/></svg>Facebook</span>
+                </span>
+              </a>
+            </div>
+
+            <div class="wrapper">
+              <div class="cta-reveal" data-drawer-item>
+                <span class="item-reveal">
+                  <a class="button-02 drawer-cta" href="./contact.html">
+                    <span class="inner">
+                      <span class="label-wrap">
+                        <span class="label">Contattaci</span>
+                      </span>
+                    </span>
+                    <span class="circle">
+                      <span aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </span>
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="page">
+      <main class="page-content">
+    <header class="site-header site-header--glass" id="top">
+      <div class="shell nav-shell nav-shell--mfs">
+        <a class="brand brand--center" href="#top">Sardinia<br /><span class="brand__sub">Slow Tourism</span></a>
+      </div>
+    </header>
+
+    <div class="site-main">
+      <section class="hero hero-01" data-hero-01>
+        <div class="hero-01__media" data-hero-01-media aria-hidden="true">
+          <!-- Hero photo: Barbagia di Belvì from S'Arena (Desulo). Wikimedia Commons, Manuel M, CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Brbagia_di_Belv%C3%AC_da_S%27Arena_Desulo.JPG -->
+          <img class="hero-01__image" src="./images/home/belvi-barbagia-hero.jpg" alt="" width="2400" height="1800" loading="eager" fetchpriority="high" decoding="async" />
+          <div class="hero-01__overlay" data-hero-01-overlay></div>
+        </div>
+
+        <div class="hero-01__content">
+          <div class="hero-01__copy">
+            <p class="hero-eyebrow" data-reveal-01="lines">Scopri la Barbagia</p>
+            <h1 class="hero-statement" data-reveal-01="lines"><span class="hero-statement__line">Trasforma ogni viaggio</span><br /><span class="hero-statement__line">in un ricordo eterno.</span></h1>
+            <p class="hero-lede" data-reveal-01="lines">Viaggi lenti tra i paesi della Barbagia: sapori, feste e persone che rendono ogni esperienza autentica.</p>
+          </div>
+        </div>
+
+        <aside class="hero-rail" aria-label="Social e scroll">
+            <ul class="social-stack">
+              <li><a href="#" aria-label="Instagram" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm5.3-8.2a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM12 3.5c-2.3 0-2.6.01-3.5.05a5.3 5.3 0 0 0-3.5 1.3 5.3 5.3 0 0 0-1.3 3.5c-.04.9-.05 1.2-.05 3.5s.01 2.6.05 3.5a5.3 5.3 0 0 0 1.3 3.5 5.3 5.3 0 0 0 3.5 1.3c.9.04 1.2.05 3.5.05s2.6-.01 3.5-.05a5.3 5.3 0 0 0 3.5-1.3 5.3 5.3 0 0 0 1.3-3.5c.04-.9.05-1.2.05-3.5s-.01-2.6-.05-3.5a5.3 5.3 0 0 0-1.3-3.5 5.3 5.3 0 0 0-3.5-1.3c-.9-.04-1.2-.05-3.5-.05Zm0 1.5c2.26 0 2.53.01 3.42.05a3.8 3.8 0 0 1 2.53 2.53c.04.89.05 1.16.05 3.42s-.01 2.53-.05 3.42a3.8 3.8 0 0 1-2.53 2.53c-.89.04-1.16.05-3.42.05s-2.53-.01-3.42-.05a3.8 3.8 0 0 1-2.53-2.53c-.04-.89-.05-1.16-.05-3.42s.01-2.53.05-3.42a3.8 3.8 0 0 1 2.53-2.53c.89-.04 1.16-.05 3.42-.05Z"/></svg></a></li>
+              <li><a href="#" aria-label="WhatsApp" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02Zm-7.01 15.24h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.53 3.69-8.21 8.23-8.21 2.2 0 4.26.86 5.81 2.41a8.16 8.16 0 0 1 2.4 5.81c0 4.53-3.69 8.23-8.21 8.23Zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74 1.49.64 2.08.7 2.83.59.43-.07 1.46-.6 1.67-1.17.21-.58.21-1.07.14-1.17-.06-.11-.23-.17-.48-.29Z"/></svg></a></li>
+              <li><a href="#" aria-label="Facebook" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M14.5 9.5V7.8c0-.6.1-1 1-1h1.5V4h-2.1C12.1 4 11 5.4 11 7.6v1.9H9v2.7h2V20h3.5v-7.8h2.3l.4-2.7h-2.7Z"/></svg></a></li>
+            </ul>
+            <div class="scroll-marker"><span>Scroll</span></div>
+          </aside>
+        <div class="hero-partners" aria-label="Partner">
+          <div class="hero-partners__viewport">
+            <div class="hero-partners__track">
+              <img src="./images/partners/logos/fradiles.png" alt="Fradiles" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/hotel-ristorante-edera.png" alt="Hotel Ristorante Edera" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/su-tessingiu.png" alt="Su Tessingiu" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/sa-burra.png" alt="Sa Burra" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/la-robbia.png" alt="La Robbia" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/ortuabis.png" alt="Ortuabis" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/sorelle-carboni.png" alt="Sorelle Carboni" class="hero-partners__logo--color" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/fradiles.png" alt="Fradiles" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/hotel-ristorante-edera.png" alt="Hotel Ristorante Edera" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/su-tessingiu.png" alt="Su Tessingiu" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/sa-burra.png" alt="Sa Burra" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/la-robbia.png" alt="La Robbia" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/ortuabis.png" alt="Ortuabis" width="160" height="64" decoding="async" />
+              <img src="./images/partners/logos/sorelle-carboni.png" alt="Sorelle Carboni" class="hero-partners__logo--color" width="160" height="64" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="villages-explore" id="paesi" aria-labelledby="villages-title">
+        <!-- Carosello ad arco dei paesi partner; crediti foto in images/partners/villages/CREDITS.txt -->
+        <div class="village-arc" data-village-arc aria-label="I paesi dei nostri partner">
+          <header class="village-arc__head">
+            <p class="village-arc__eyebrow">I nostri paesi</p>
+            <h2 id="villages-title" class="village-arc__heading">Paesi vicini, esperienze diverse.</h2>
+            <p class="village-arc__sub">27 partner in <span>13 paesi</span> della Barbagia e del Mandrolisai.</p>
+          </header>
+          <div class="village-arc__mask"><div class="village-arc__wheel">
+            <figure class="village-arc__card"><img src="./images/partners/villages/atzara.jpg" alt="Atzara" loading="lazy" decoding="async" /><figcaption>Atzara</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/home/belvi-barbagia-hero.jpg" alt="Belvì" loading="lazy" decoding="async" /><figcaption>Belvì</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/desulo.jpg" alt="Desulo" loading="lazy" decoding="async" /><figcaption>Desulo</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/meana-sardo.jpg" alt="Meana Sardo" loading="lazy" decoding="async" /><figcaption>Meana Sardo</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/seulo.jpg" alt="Seulo" loading="lazy" decoding="async" /><figcaption>Seulo</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/sorgono.jpg" alt="Sorgono" loading="lazy" decoding="async" /><figcaption>Sorgono</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/aritzo.jpg" alt="Aritzo" loading="lazy" decoding="async" /><figcaption>Aritzo</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/samugheo.jpg" alt="Samugheo" loading="lazy" decoding="async" /><figcaption>Samugheo</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/austis.jpg" alt="Austis" loading="lazy" decoding="async" /><figcaption>Austis</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/gadoni.jpg" alt="Gadoni" loading="lazy" decoding="async" /><figcaption>Gadoni</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/ovodda.jpg" alt="Ovodda" loading="lazy" decoding="async" /><figcaption>Ovodda</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/teti.jpg" alt="Teti" loading="lazy" decoding="async" /><figcaption>Teti</figcaption></figure>
+            <figure class="village-arc__card"><img src="./images/partners/villages/tonara.jpg" alt="Tonara" loading="lazy" decoding="async" /><figcaption>Tonara</figcaption></figure>
+          </div></div>
+          <div class="village-arc__stat nf nf-stat" data-number-flow-stat aria-label="13 paesi partner">
+            <number-flow class="nf-number village-arc__nf" data-stat-number></number-flow>
+            <span class="village-arc__stat-label">paesi da attraversare</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sectors-section" id="esperienze" aria-labelledby="sectors-title">
+        <span id="experiences" class="anchor-alias" aria-hidden="true"></span>
+        <div class="sectors-intro">
+          <h2 id="sectors-title" data-reveal-01="lines" data-scroll>Esplora le esperienze della Barbagia</h2>
+        </div>
+        <div class="sectors-grid">
+          <a class="sector-card sector-card--green" href="./destinazioni.html" style="--sector-img: url('./images/partners/percorso-archeo-etnografico/11.webp')">
+            <div class="sector-card__media" aria-hidden="true"></div>
+            <div class="sector-card__wave" aria-hidden="true"></div>
+            <div class="sector-card__body">
+              <h3 class="sector-card__title">Trekking</h3>
+              <p class="sector-card__text">Cammina tra sentieri, boschi e siti archeologici con le guide locali.</p>
+              <span class="button-02 sector-card__btn" data-label="Scopri"><span class="inner">Scopri</span><span class="circle" aria-hidden="true"><span><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span></span></span>
+            </div>
+          </a>
+          <a class="sector-card sector-card--coral" href="./destinazioni.html" style="--sector-img: url('./images/partners/hotel-ristorante-edera/02.webp')">
+            <div class="sector-card__media" aria-hidden="true"></div>
+            <div class="sector-card__wave" aria-hidden="true"></div>
+            <div class="sector-card__body">
+              <h3 class="sector-card__title">Cooking class</h3>
+              <p class="sector-card__text">Impara ricette della tradizione insieme a chi cucina ogni giorno in Barbagia.</p>
+              <span class="button-02 sector-card__btn" data-label="Scopri"><span class="inner">Scopri</span><span class="circle" aria-hidden="true"><span><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span></span></span>
+            </div>
+          </a>
+          <a class="sector-card sector-card--gold" href="./destinazioni.html" style="--sector-img: url('./images/partners/fradiles/05.webp')">
+            <div class="sector-card__media" aria-hidden="true"></div>
+            <div class="sector-card__wave" aria-hidden="true"></div>
+            <div class="sector-card__body">
+              <h3 class="sector-card__title">Winery</h3>
+              <p class="sector-card__text">Degusta i vini del Mandrolisai tra le vigne e le cantine del territorio.</p>
+              <span class="button-02 sector-card__btn" data-label="Scopri"><span class="inner">Scopri</span><span class="circle" aria-hidden="true"><span><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span></span></span>
+            </div>
+          </a>
+          <a class="sector-card sector-card--blue" href="./destinazioni.html" style="--sector-img: url('./images/home/gola-sardegna.png')">
+            <div class="sector-card__media" aria-hidden="true"></div>
+            <div class="sector-card__wave" aria-hidden="true"></div>
+            <div class="sector-card__body">
+              <h3 class="sector-card__title">Outdoor</h3>
+              <p class="sector-card__text">Vivi la natura aperta: pascoli, gole e paesaggi da esplorare senza fretta.</p>
+              <span class="button-02 sector-card__btn" data-label="Scopri"><span class="inner">Scopri</span><span class="circle" aria-hidden="true"><span><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span></span></span>
+            </div>
+          </a>
+          <a class="sector-card sector-card--purple" href="./destinazioni.html" style="--sector-img: url('./images/partners/coa-sa-mandara/03.webp')">
+            <div class="sector-card__media" aria-hidden="true"></div>
+            <div class="sector-card__wave" aria-hidden="true"></div>
+            <div class="sector-card__body">
+              <h3 class="sector-card__title">Food tasting</h3>
+              <p class="sector-card__text">Assaggia formaggi, pane, dolci e prodotti tipici direttamente dai produttori.</p>
+              <span class="button-02 sector-card__btn" data-label="Scopri"><span class="inner">Scopri</span><span class="circle" aria-hidden="true"><span><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span></span></span>
+            </div>
+          </a>
+          <a class="sector-card sector-card--green" href="./destinazioni.html" style="--sector-img: url('./images/partners/isabella-frongia/03.webp')">
+            <div class="sector-card__media" aria-hidden="true"></div>
+            <div class="sector-card__wave" aria-hidden="true"></div>
+            <div class="sector-card__body">
+              <h3 class="sector-card__title">Artigianato</h3>
+              <p class="sector-card__text">Entra nei laboratori di tessitura e scopri i gesti che custodiscono i saperi locali.</p>
+              <span class="button-02 sector-card__btn" data-label="Scopri"><span class="inner">Scopri</span><span class="circle" aria-hidden="true"><span><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span></span></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="forpeople" id="per-la-barbagia" aria-label="Per la Barbagia" data-forpeople>
+        <div class="forpeople__pin">
+        <div class="forpeople__media" aria-hidden="true">
+          <img class="forpeople__bg is-active" src="./images/home/belvi-barbagia-hero.jpg" alt="" loading="eager" decoding="async" data-forpeople-bg />
+          <img class="forpeople__bg" src="./images/partners/fradiles/01.webp" alt="" loading="lazy" decoding="async" data-forpeople-bg />
+          <img class="forpeople__bg" src="./images/home/gola-sardegna.png" alt="" loading="lazy" decoding="async" data-forpeople-bg />
+          <img class="forpeople__bg" src="./images/festivities/desulo-costume.jpg" alt="" loading="lazy" decoding="async" data-forpeople-bg />
+          <img class="forpeople__bg" src="./images/partners/hotel-ristorante-edera/01.webp" alt="" loading="lazy" decoding="async" data-forpeople-bg />
+          <img class="forpeople__bg" src="./images/partners/su-tessingiu/01.webp" alt="" loading="lazy" decoding="async" data-forpeople-bg />
+          <div class="forpeople__overlay"></div>
+        </div>
+        <div class="forpeople__inner">
+          <div class="forpeople__viewport">
+            <ul class="forpeople__track" data-forpeople-track>
+          <li class="forpeople__item is-active" data-forpeople-item>
+            <h3 class="forpeople__statement">Paesi veri, ritmi lenti.</h3>
+            <p class="forpeople__text">Seulo, Aritzo, Tonara, Desulo, Belvì: borghi di montagna dove il tempo si misura in incontri.</p>
+          </li>
+          <li class="forpeople__item" data-forpeople-item>
+            <h3 class="forpeople__statement">Sapori che raccontano.</h3>
+            <p class="forpeople__text">Vini, formaggi e sapori di montagna: assaggi nati dal lavoro di ogni giorno.</p>
+          </li>
+          <li class="forpeople__item" data-forpeople-item>
+            <h3 class="forpeople__statement">Natura da attraversare.</h3>
+            <p class="forpeople__text">Gole, cascate e boschi da scoprire a piedi, a cavallo o in fuoristrada.</p>
+          </li>
+          <li class="forpeople__item" data-forpeople-item>
+            <h3 class="forpeople__statement">Feste e tradizioni.</h3>
+            <p class="forpeople__text">Costumi, riti e feste dei paesi tutto l’anno, da Autunno in Barbagia al Carnevale.</p>
+          </li>
+          <li class="forpeople__item" data-forpeople-item>
+            <h3 class="forpeople__statement">Ospitalità di casa.</h3>
+            <p class="forpeople__text">Strutture partner che ti accolgono come uno di famiglia, tra paesi e sentieri.</p>
+          </li>
+          <li class="forpeople__item" data-forpeople-item>
+            <h3 class="forpeople__statement">Partner del territorio.</h3>
+            <p class="forpeople__text">Cooperative e realtà locali che rendono ogni viaggio autentico.</p>
+          </li>
+            </ul>
+          </div>
+        </div>
+        </div><!-- /.forpeople__pin -->
+      </section>
+
+      <section class="festivities" id="feste" aria-labelledby="feste-title">
+        <div class="shell">
+          <div class="festivities__intro">
+            <h2 id="feste-title" data-reveal-01="lines" data-scroll>Feste e sagre della Barbagia</h2>
+            <p>Tradizioni vive nei paesi del territorio: peonie, castagne, torrone, maschere e Autunno in Barbagia.</p>
+          </div>
+          <div class="festivities__toolbar">
+            <div class="festivities__nav">
+              <button class="festivities__btn" type="button" data-festivities-prev aria-label="Precedente">‹</button>
+              <button class="festivities__btn" type="button" data-festivities-next aria-label="Successivo">›</button>
+            </div>
+          </div>
+        </div>
+        <div class="festivities__viewport" data-festivities-track-wrap>
+            <div class="festivities__track" data-festivities-track>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/seulo-peonia.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.sardegnaturismo.it/it/eventi/sorrosa-e-padenti" target="_blank" rel="noopener noreferrer" aria-label="Scopri S’Orrosa ’e Padenti">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">SEULO · APRILE</p>
+                <h3>S’Orrosa ’e Padenti</h3>
+                <p class="festivity-card__text">Festa della peonia selvatica, con escursioni, sapori locali e tradizioni seulesi.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/gadoni-prendas-autunno.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.galbmg.it/wp-content/uploads/2022/12/Gal-bmg-un-territorio-da-scoprire.pdf" target="_blank" rel="noopener noreferrer" aria-label="Scopri Prendas de Jerru">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">GADONI · FINE NOVEMBRE–INIZIO DICEMBRE</p>
+                <h3>Prendas de Jerru</h3>
+                <p class="festivity-card__text">Tappa di Autunno in Barbagia, con prodotti tipici e rievocazione del rito del fuoco Is Fraccheras.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/aritzo-castagne.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.sardegnaturismo.it/it/node/287401" target="_blank" rel="noopener noreferrer" aria-label="Scopri Sagra delle castagne e delle nocciole">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">ARITZO · FINE OTTOBRE</p>
+                <h3>Sagra delle castagne e delle nocciole</h3>
+                <p class="festivity-card__text">Caldarroste, prodotti del bosco, artigianato e folklore.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/belvi-stazione.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.lestradedelvino.com/eventi-enogastronomici/autunno-in-barbagia-2025-belvi-il-borgo-delle-fate-tessitrici-dal-18-19-ottobre/" target="_blank" rel="noopener noreferrer" aria-label="Scopri Autunno in Barbagia">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">BELVÌ · OTTOBRE</p>
+                <h3>Autunno in Barbagia</h3>
+                <p class="festivity-card__text">Tradizioni, castagne e is caschettes, dolci tipici con nocciole e miele.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/desulo-costume.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://comune.desulo.nu.it/luoghi/1852154/info-point-montagna-produce" target="_blank" rel="noopener noreferrer" aria-label="Scopri La Montagna Produce">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">DESULO · TRA FINE OTTOBRE E INIZIO NOVEMBRE</p>
+                <h3>La Montagna Produce</h3>
+                <p class="festivity-card__text">Prodotti della montagna, gastronomia e artigianato locale.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/tonara-torrone.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.comune.tonara.nu.it/it/vivere/760050" target="_blank" rel="noopener noreferrer" aria-label="Scopri Sagra del Torrone">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">TONARA · PERIODO PASQUALE</p>
+                <h3>Sagra del Torrone</h3>
+                <p class="festivity-card__text">Il celebre torrone tonarese, lavorazioni artigianali, degustazioni e folklore.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/ovodda-carnevale-mamuthones.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.sardegnaturismo.it/it/esplora/ovodda" target="_blank" rel="noopener noreferrer" aria-label="Scopri Mehuris de Lessia">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">OVODDA · MERCOLEDÌ DELLE CENERI</p>
+                <h3>Mehuris de Lessia</h3>
+                <p class="festivity-card__text">Carnevale con volti anneriti, travestimenti spontanei e il fantoccio Don Conte.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/tiana-paese.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://it.wikipedia.org/wiki/Tiana" target="_blank" rel="noopener noreferrer" aria-label="Scopri Coli Coli">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">TIANA · MERCOLEDÌ DELLE CENERI</p>
+                <h3>Coli Coli</h3>
+                <p class="festivity-card__text">Carnevale tradizionale con visi tinti di carbone e festa per le vie del paese.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/austis-festa.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.borghiautenticiditalia.it/node/182" target="_blank" rel="noopener noreferrer" aria-label="Scopri Sant’Antonio da Padova a Basiloccu">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">AUSTIS · SETTEMBRE</p>
+                <h3>Sant’Antonio da Padova a Basiloccu</h3>
+                <p class="festivity-card__text">Festa campestre con processioni, balli e la tradizione di sa pane manna.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/atzara-vino.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.lamiasardegna.it/Atzara.htm" target="_blank" rel="noopener noreferrer" aria-label="Scopri Sagra del Vino e Sant’Isidoro">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">ATZARA · MAGGIO</p>
+                <h3>Sagra del Vino e Sant’Isidoro</h3>
+                <p class="festivity-card__text">Vini del territorio e processione con costumi tradizionali e carri addobbati.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/sorgono-costume.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.sardegnaturismo.it/it/eventi/festa-di-san-mauro" target="_blank" rel="noopener noreferrer" aria-label="Scopri Festa di San Mauro">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">SORGONO · FINE MAGGIO</p>
+                <h3>Festa di San Mauro</h3>
+                <p class="festivity-card__text">Una delle principali feste del territorio, con celebrazioni, musica e folklore.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/samugheo-mamuthones.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.sardegnaturismo.it/it/eventi/maimone-1" target="_blank" rel="noopener noreferrer" aria-label="Scopri A Maimone">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">SAMUGHEO · PERIODO DI CARNEVALE</p>
+                <h3>A Maimone</h3>
+                <p class="festivity-card__text">Grande rassegna di maschere tradizionali, con protagonisti i Mamutzones.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/ortueri-paese.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.shmag.it/eventi/12_12_2025/ortueri-chiude-autunno-in-barbagia-2025-con-colores-e-sabores-de-atongiu/" target="_blank" rel="noopener noreferrer" aria-label="Scopri Colores e Sabores de Atongiu">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">ORTUERI · DICEMBRE</p>
+                <h3>Colores e Sabores de Atongiu</h3>
+                <p class="festivity-card__text">Appuntamento di Autunno in Barbagia dedicato a sapori e tradizioni locali.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/teti-abini.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://idese.cultura.gov.it/place/parco-di-san-sebastiano/" target="_blank" rel="noopener noreferrer" aria-label="Scopri Festa di San Sebastiano">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">TETI · FINE AGOSTO</p>
+                <h3>Festa di San Sebastiano</h3>
+                <p class="festivity-card__text">Festa presso il santuario campestre, con processione e festeggiamenti popolari.</p>
+              </div>
+            </article>
+
+            <article class="festivity-card">
+              <div class="festivity-card__media">
+                <img src="./images/festivities/meana-nolza.jpg" alt="" loading="lazy" width="800" height="1000" />
+                <a class="festivity-card__eye" href="https://www.sardegnaturismo.it/it/esplora/meana-sardo" target="_blank" rel="noopener noreferrer" aria-label="Scopri Domos Antigas – Autunno in Barbagia">
+                  <span class="festivity-card__eye-label">Scopri</span>
+                  <span class="festivity-card__eye-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </a>
+              </div>
+              <div class="festivity-card__body">
+                <p class="festivity-card__place">MEANA SARDO · INIZIO OTTOBRE</p>
+                <h3>Domos Antigas – Autunno in Barbagia</h3>
+                <p class="festivity-card__text">Case antiche, cortili e cantine aperti, prodotti tipici e artigianato.</p>
+              </div>
+            </article>
+            </div>
+          </div>
+      </section>
+
+      <section class="itinerary-banner" aria-labelledby="itinerary-title">
+        <div class="itinerary-banner__media">
+          <img src="./images/home/gola-sardegna.png" alt="Gola immersa nel verde in Barbagia" loading="lazy" />
+        </div>
+        <div class="itinerary-banner__overlay" aria-hidden="true"></div>
+        <div class="shell itinerary-banner__content">
+          <h2 id="itinerary-title" data-reveal-01="lines" data-scroll>Esperienze autentiche su misura in Barbagia</h2>
+          <p data-reveal-01="words" data-scroll>Itinerari cuciti sul tuo ritmo: trekking, sapori, artigianato e incontri reali con chi vive il territorio.</p>
+          <a class="itinerary-banner__cta" href="./destinazioni.html">Esplora</a>
+        </div>
+      </section>
+
+      <section class="google-reviews" id="google-reviews" aria-labelledby="reviews-title">
+        <div class="shell google-reviews__inner">
+          <div class="google-reviews__intro">
+            <h2 id="reviews-title" data-reveal-01="lines" data-scroll>Alcune recensioni lasciate ai nostri partner</h2>
+            <p>Storie vere di chi ha vissuto il territorio con le persone del posto.</p>
+          </div>
+          <div class="google-reviews__grid">
+
+          <a class="google-reviews__card" href="https://share.google/MeVT63e9I1J2lii21" target="_blank" rel="noopener noreferrer">
+            <figure class="google-reviews__figure">
+              <picture>
+                <img class="google-reviews__photo" src="./images/reviews/left-review-01.jpg" alt="" loading="lazy" />
+              </picture>
+              <span class="google-reviews__partner">Fradiles Vitivinicola</span>
+              <span class="google-reviews__badge" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></span>
+              <blockquote class="google-reviews__quote">
+                <span class="google-reviews__stars" aria-hidden="true"><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg></span>
+                <p>Amazing place. Amazing people. Amazing wines.</p>
+              </blockquote>
+              <div class="google-reviews__panel">
+                <div class="google-reviews__reviewer">
+                  <img class="google-reviews__avatar" src="./images/reviews/left-avatar.jpg" alt="" width="40" height="40" loading="lazy" />
+                  <div>
+                    <strong>Jon Appino</strong>
+                    <div class="google-reviews__place">Fradiles Vitivinicola | Mandrolisai</div>
+                    <div class="google-reviews__source">
+                      <span class="google-reviews__stars google-reviews__stars--mini" aria-hidden="true"><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg></span>
+                      <span class="google-reviews__rating">5/5</span>
+                      <span class="google-reviews__badge" style="position:static;width:14px;height:14px;padding:0;box-shadow:none;display:inline-flex;" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></span>
+                      <span>Google</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="google-reviews__full-text">Amazing place. Amazing people. Amazing wines. The cork trees on property were recently harvested and this is very cool to see. My kids were very welcome to hang out and learn with us at the property while my wife and I tried (and purchased) wines. Very generous owner and a great time. We will order to ship to our home in Barcelona and be back! Thank you for a great memory with my family we have been enjoying these wines during our stay on Sardegna.</p>
+                <div class="google-reviews__gallery">
+                  <div class="google-reviews__slides">
+                  <img src="./images/reviews/left-review-01.jpg" alt="" loading="lazy" />
+                  <img src="./images/reviews/left-review-02.jpg" alt="" loading="lazy" hidden />
+                  </div>
+                  <div class="google-reviews__gallery-controls">
+                    <button type="button" aria-label="Foto precedente">‹</button>
+                    <span class="google-reviews__counter">1 / 2</span>
+                    <button type="button" aria-label="Foto successiva">›</button>
+                  </div>
+                </div>
+                <span class="google-reviews__original">Leggi su Google</span>
+              </div>
+            </figure>
+          </a>
+
+          <a class="google-reviews__card google-reviews__card--raised" href="https://share.google/q1iO1Xtta8Z6W8Kbm" target="_blank" rel="noopener noreferrer">
+            <figure class="google-reviews__figure">
+              <picture>
+                <img class="google-reviews__photo" src="./images/reviews/middle-review-01.jpg" alt="" loading="lazy" />
+              </picture>
+              <span class="google-reviews__partner">Caseifitziu Agriculu</span>
+              <span class="google-reviews__badge" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></span>
+              <blockquote class="google-reviews__quote">
+                <span class="google-reviews__stars" aria-hidden="true"><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg></span>
+                <p>Oggi abbiamo assaggiato un piccolo spicchio del territorio di Mandrolisai…</p>
+              </blockquote>
+              <div class="google-reviews__panel">
+                <div class="google-reviews__reviewer">
+                  <img class="google-reviews__avatar" src="./images/reviews/middle-avatar.jpg" alt="" width="40" height="40" loading="lazy" />
+                  <div>
+                    <strong>Mariagiulia Garzella</strong>
+                    <div class="google-reviews__place">Caseifitziu Agriculu Mandrolisai</div>
+                    <div class="google-reviews__source">
+                      <span class="google-reviews__stars google-reviews__stars--mini" aria-hidden="true"><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg></span>
+                      <span class="google-reviews__rating">5/5</span>
+                      <span class="google-reviews__badge" style="position:static;width:14px;height:14px;padding:0;box-shadow:none;display:inline-flex;" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></span>
+                      <span>Google</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="google-reviews__full-text">Oggi abbiamo assaggiato un piccolo spicchio del territorio di Mandrolisai nella Sardegna centrale. La visita al Caseifitziu Agriculu è stata un’esperienza autentica: Gerolamo ci ha raccontato la lavorazione, ci ha fatto assaggiare formaggi freschi e stagionati e si sentiva tutta la cura del lavoro quotidiano. Un incontro vero, senza fretta, che ti fa capire il valore di chi produce qui. Consigliatissimo.</p>
+                <div class="google-reviews__gallery">
+                  <div class="google-reviews__slides">
+                  <img src="./images/reviews/middle-review-01.jpg" alt="" loading="lazy" />
+                  <img src="./images/reviews/middle-review-02.jpg" alt="" loading="lazy" hidden />
+                  </div>
+                  <div class="google-reviews__gallery-controls">
+                    <button type="button" aria-label="Foto precedente">‹</button>
+                    <span class="google-reviews__counter">1 / 2</span>
+                    <button type="button" aria-label="Foto successiva">›</button>
+                  </div>
+                </div>
+                <span class="google-reviews__original">Leggi su Google</span>
+              </div>
+            </figure>
+          </a>
+
+          <a class="google-reviews__card" href="https://share.google/AFIeJBcibipsgDO2p" target="_blank" rel="noopener noreferrer">
+            <figure class="google-reviews__figure">
+              <picture>
+                <img class="google-reviews__photo" src="./images/reviews/right-review-01.jpg" alt="" loading="lazy" />
+              </picture>
+              <span class="google-reviews__partner">Aritzo Off-Road Experience</span>
+              <span class="google-reviews__badge" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></span>
+              <blockquote class="google-reviews__quote">
+                <span class="google-reviews__stars" aria-hidden="true"><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg></span>
+                <p>Wow! Really worth it!</p>
+              </blockquote>
+              <div class="google-reviews__panel">
+                <div class="google-reviews__reviewer">
+                  <img class="google-reviews__avatar" src="./images/reviews/right-avatar.jpg" alt="" width="40" height="40" loading="lazy" />
+                  <div>
+                    <strong>Eveline H.</strong>
+                    <div class="google-reviews__place">Aritzo Off-Road Experience</div>
+                    <div class="google-reviews__source">
+                      <span class="google-reviews__stars google-reviews__stars--mini" aria-hidden="true"><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg><svg class="google-reviews__star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.7.7-5 4.6 1.4 6.5L12 17.8 5.999 20.4 7.4 13.9 2.4 9.3l6.7-.7L12 2.5z"/></svg></span>
+                      <span class="google-reviews__rating">5/5</span>
+                      <span class="google-reviews__badge" style="position:static;width:14px;height:14px;padding:0;box-shadow:none;display:inline-flex;" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></span>
+                      <span>Google</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="google-reviews__full-text">Wow! Really worth it! We paid 160 euros cash for 2 people, no card. You might think this is a lot of money, but the experience is unique: beautiful landscapes, fun buggy ride and a great guide. We saw places you would never reach by car and had a wonderful afternoon in Aritzo. Highly recommended!</p>
+                <div class="google-reviews__gallery">
+                  <div class="google-reviews__slides">
+                  <img src="./images/reviews/right-review-01.jpg" alt="" loading="lazy" />
+                  <img src="./images/reviews/right-review-02.jpg" alt="" loading="lazy" hidden />
+                  </div>
+                  <div class="google-reviews__gallery-controls">
+                    <button type="button" aria-label="Foto precedente">‹</button>
+                    <span class="google-reviews__counter">1 / 2</span>
+                    <button type="button" aria-label="Foto successiva">›</button>
+                  </div>
+                </div>
+                <span class="google-reviews__original">Leggi su Google</span>
+              </div>
+            </figure>
+          </a>
+          </div>
+        </div>
+      </section>
+
+      
+
+
+
+      <section class="promo-banner" id="home-contact" aria-labelledby="promo-title">
+        <div class="promo-media has-partner-image">
+          <img src="./images/home/gola-sardegna.png" alt="" loading="lazy" />
+        </div>
+        <div class="promo-overlay" aria-hidden="true"></div>
+        <div class="shell promo-content">
+          <h2 id="promo-title" data-reveal-01="lines" data-scroll>Esperienze autentiche,<br />su misura per te</h2>
+          <p>Trekking, sapori e incontri reali tra i paesi della Sardegna interna.</p>
+          <a class="button-02 promo-cta" href="#esperienze" data-label="Scopri le esperienze">
+            <span class="inner">Scopri le esperienze</span>
+            <span class="circle" aria-hidden="true"><span><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span></span>
+          </a>
+        </div>
+      </section>
+    </div>
+
+                <footer class="site-footer" id="footer">
+      <div class="shell footer-grid">
+        <section class="footer-brand-block">
+          <a class="brand footer-brand" href="./index.html">Sardinia Slow Tourism</a>
+          <p class="footer-tagline">Soggiorni di paese, itinerari culturali e slow travel nel cuore della Sardegna.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram" aria-disabled="true" title="Instagram (URL da inserire)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm5.3-8.2a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM12 3.5c-2.3 0-2.6.01-3.5.05a5.3 5.3 0 0 0-3.5 1.3 5.3 5.3 0 0 0-1.3 3.5c-.04.9-.05 1.2-.05 3.5s.01 2.6.05 3.5a5.3 5.3 0 0 0 1.3 3.5 5.3 5.3 0 0 0 3.5 1.3c.9.04 1.2.05 3.5.05s2.6-.01 3.5-.05a5.3 5.3 0 0 0 3.5-1.3 5.3 5.3 0 0 0 1.3-3.5c.04-.9.05-1.2.05-3.5s-.01-2.6-.05-3.5a5.3 5.3 0 0 0-1.3-3.5 5.3 5.3 0 0 0-3.5-1.3c-.9-.04-1.2-.05-3.5-.05Zm0 1.5c2.26 0 2.53.01 3.42.05a3.8 3.8 0 0 1 2.53 2.53c.04.89.05 1.16.05 3.42s-.01 2.53-.05 3.42a3.8 3.8 0 0 1-2.53 2.53c-.89.04-1.16.05-3.42.05s-2.53-.01-3.42-.05a3.8 3.8 0 0 1-2.53-2.53c-.04-.89-.05-1.16-.05-3.42s.01-2.53.05-3.42a3.8 3.8 0 0 1 2.53-2.53c.89-.04 1.16-.05 3.42-.05Z"/></svg>
+            </a>
+            <a href="#" aria-label="WhatsApp" aria-disabled="true" title="WhatsApp (URL da inserire)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02Zm-7.01 15.24h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.53 3.69-8.21 8.23-8.21 2.2 0 4.26.86 5.81 2.41a8.16 8.16 0 0 1 2.4 5.81c0 4.53-3.69 8.23-8.21 8.23Zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74 1.49.64 2.08.7 2.83.59.43-.07 1.46-.6 1.67-1.17.21-.58.21-1.07.14-1.17-.06-.11-.23-.17-.48-.29Z"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" aria-disabled="true" title="Facebook (URL da inserire)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M14.5 9.5V7.8c0-.6.1-1 1-1h1.5V4h-2.1C12.1 4 11 5.4 11 7.6v1.9H9v2.7h2V20h3.5v-7.8h2.3l.4-2.7h-2.7Z"/></svg>
+            </a>
+          </div>
+        </section>
+
+        <section>
+          <h3>Naviga</h3>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./contact.html">Contatti</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Scopri</h3>
+          <ul>
+            <li><a href="./destinazioni.html">Esperienze</a></li>
+            <li><a href="./partner.html">Destinazioni</a></li>
+            <li><a href="./index.html#feste">Feste e sagre</a></li>
+            <li><a href="./index.html#paesi">I nostri paesi</a></li>
+          </ul>
+        </section>
+
+        <section class="footer-company">
+          <h3>Barbagia Ospitale Srls</h3>
+          <ul class="footer-company__list">
+            <li>Partita IVA / Codice Fiscale: 01587000918</li>
+            <li>Numero REA: NU - 113250</li>
+            <li>Sede legale: Via Roma 40/A, 08030 Belvì (NU)</li>
+            <li>Contatti: <a href="tel:+393467402408">+39 346 740 2408</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="shell footer-bottom">
+        <p>Copyright &copy; 2026 Sardinia Slow Tourism. Tutti i diritti riservati.</p>
+      </div>
+    </footer>
+        </main>
+      </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+    <script defer src="./navigation-drawer.js?v=202610271850"></script>
+    <script defer src="./script.js?v=202610271850"></script>
+    <script defer src="./village-arc.js?v=202610151655"></script>
+  
+    <script type="module">
+      import "https://esm.sh/number-flow";
+
+      function initStatisticNumber(scope = document) {
+        const root = scope.matches?.("[data-number-flow-stat]")
+          ? scope
+          : scope.querySelector("[data-number-flow-stat]");
+        if (!root) return;
+
+        const cleanupName = "__numberFlowStatisticCleanup";
+        root[cleanupName]?.();
+
+        const flow = root.querySelector("[data-stat-number]");
+        if (!flow) return;
+
+        flow.format = { maximumFractionDigits: 0 };
+        flow.trend = 1;
+        flow.animated = false;
+        flow.update(0);
+        flow.animated = true;
+
+        let observer;
+        const reveal = () => flow.update(13);
+
+        if ("IntersectionObserver" in window) {
+          observer = new IntersectionObserver(
+            ([entry]) => {
+              if (!entry?.isIntersecting) return;
+              reveal();
+              observer.disconnect();
+            },
+            { threshold: 0.45 },
+          );
+          observer.observe(root);
+        } else {
+          reveal();
+        }
+
+        root[cleanupName] = () => {
+          observer?.disconnect();
+          flow.animated = false;
+          delete root[cleanupName];
+        };
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => initStatisticNumber(), { once: true });
+      } else {
+        initStatisticNumber();
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,17 @@
+/* Village arc carousel — ispirato a tresmarescapital.com ("We join forces with Banco Santander") */
+.village-arc { --va-card: clamp(84px, 11.5vw, 170px); --va-r: clamp(330px, 56vw, 820px); position: relative; background: #fff; overflow: hidden; padding-top: clamp(48px, 7vw, 96px); height: calc(var(--va-r) * .62 + var(--va-card) + clamp(48px, 7vw, 96px) + 80px); margin-top: 0; opacity: 1 !important; visibility: visible !important; }
+.village-arc__head { position: relative; z-index: 2; text-align: center; max-width: 920px; margin: 0 auto; padding: 0 24px; }
+.village-arc__eyebrow { margin: 0 0 18px; font: 500 13px/1.2 "Manrope", sans-serif; letter-spacing: .08em; text-transform: none; color: #b0b0b0; }
+.village-arc__heading { margin: 0; font: 600 clamp(28px, 4.2vw, 56px)/1.12 "Manrope", sans-serif; letter-spacing: -.03em; color: #1a1a1a; }
+.village-arc__heading span { color: #c45c3a; }
+.village-arc__sub { margin: 14px 0 0; font: 400 clamp(15px, 1.5vw, 20px)/1.4 "Manrope", sans-serif; color: #6b6b6b; }
+.village-arc__sub span { color: #c45c3a; font-weight: 600; }
+.village-arc__wheel { position: absolute; left: 50%; top: calc(clamp(48px, 7vw, 96px) + clamp(140px, 16vw, 210px) + var(--va-r)); width: 0; height: 0; }
+.village-arc__card { position: absolute; left: calc(var(--va-card) / -2); top: calc(var(--va-r) * -1); width: var(--va-card); margin: 0; transform-origin: 50% var(--va-r); will-change: transform; }
+.village-arc__card img { display: block; width: var(--va-card); height: var(--va-card); object-fit: cover; }
+.village-arc__card figcaption { position: absolute; left: -40%; right: -40%; top: calc(var(--va-card) + 14px); text-align: center; font: 500 clamp(13px, 1.5vw, 20px)/1 "Manrope", sans-serif; letter-spacing: -.01em; color: #9a9a9a; opacity: 1; white-space: nowrap; }
+.village-arc__text { display: none; }
+@media (max-width: 760px) { .village-arc { height: calc(var(--va-r) * .62 + var(--va-card) + clamp(48px, 7vw, 96px) + 150px); } .village-arc__heading { font-size: clamp(24px, 7vw, 34px); } }
+.village-arc__mask { position: absolute; inset: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 55%, transparent 100%), linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-image: linear-gradient(to bottom, #000 0, #000 55%, transparent 100%), linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%); mask-composite: intersect; }

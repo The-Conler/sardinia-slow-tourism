@@ -1,0 +1,131 @@
+/* Partner timeline — ispirata alla sezione "Obras" di eladiodieste.com */
+.ptl-page { background: #000; }
+.partner-body { background: #000; }
+.partner-body .detail-site-header { background: #000; color: #fff; }
+.partner-body .detail-site-header .brand,
+.partner-body .detail-site-header .top-nav a { color: #fff; }
+.partner-body .detail-site-header .menu-toggle span { background: #fff; }
+.ptl { position: relative; background: #000; color: #fff; padding: 0; overflow: clip; }
+.ptl-head { display: grid; grid-template-columns: 1fr minmax(0, 340px); gap: 32px; align-items: end; margin-bottom: clamp(40px, 8vw, 120px); }
+.ptl-title { margin: 0; font-family: "Manrope", sans-serif; font-weight: 500; font-size: clamp(56px, 10.5vw, 168px); line-height: .88; letter-spacing: -.045em; color: #fff; }
+.ptl-intro { margin: 0; font-family: "Manrope", sans-serif; font-size: 15px; line-height: 1.55; color: rgba(255,255,255,.62); }
+.ptl-stage { position: relative; }
+.ptl-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; pointer-events: none; z-index: 2; }
+.ptl-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,.55); transform: translateX(-.5px); }
+.ptl-marker { position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; background: #fff; transform: translate(-50%, -50%); }
+.ptl-labels { list-style: none; margin: 0; padding: 0; position: absolute; left: 0; right: 0; top: 50%; text-align: center; will-change: transform; }
+.ptl-label { display: flex; flex-direction: column; align-items: center; height: clamp(260px, 48vh, 520px); justify-content: center; opacity: .18; transition: opacity .5s cubic-bezier(.165,.84,.44,1); mix-blend-mode: difference; }
+.ptl-label.is-active { opacity: 1; }
+.ptl-label.is-past { opacity: 0; }
+.ptl-name { font-family: "Manrope", sans-serif; font-weight: 500; font-size: clamp(48px, 9vw, 150px); line-height: 1; letter-spacing: -.04em; white-space: nowrap; }
+.ptl-count { margin-top: 6px; font-family: "Manrope", sans-serif; font-size: clamp(11px, 1vw, 13px); letter-spacing: .18em; text-transform: uppercase; }
+.ptl-track { position: relative; z-index: 1; padding: 45vh 0 70vh; display: flex; flex-direction: column; gap: clamp(70vh, 110vh, 140vh); }
+.ptl-step { margin: 0; position: relative; }
+.ptl-step img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; filter: grayscale(.15); }
+.ptl-step.is-lg { width: min(40vw, 620px); }
+.ptl-step.is-md { width: min(30vw, 460px); }
+.ptl-step.is-sm { width: min(22vw, 330px); }
+.ptl-step.is-sm img { aspect-ratio: 3 / 4; }
+.ptl-step.is-left { margin-left: 6vw; }
+.ptl-step.is-right { margin-left: auto; margin-right: 6vw; }
+.ptl-step.is-center { margin-left: auto; margin-right: auto; }
+.ptl-step figcaption { margin-top: 12px; font-family: "Manrope", sans-serif; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,.7); }
+.ptl-step figcaption strong { display: block; color: #fff; font-weight: 600; letter-spacing: .04em; margin-bottom: 4px; }
+.ptl-step figcaption ul { list-style: none; margin: 0; padding: 0; }
+.ptl-step figcaption a { color: inherit; text-decoration: none; pointer-events: auto; }
+.ptl-step figcaption a:hover { color: #fff; text-decoration: underline; }
+@media (max-width: 760px) {
+  .ptl-head { grid-template-columns: 1fr; }
+  .ptl-step.is-lg { width: 78vw; } .ptl-step.is-md { width: 62vw; } .ptl-step.is-sm { width: 48vw; }
+  .ptl-step.is-left { margin-left: 4vw; } .ptl-step.is-right { margin-right: 4vw; }
+  .ptl-name { font-size: clamp(40px, 12vw, 64px); }
+  .ptl-label { height: 220px; }
+}
+@media (prefers-reduced-motion: reduce) { .ptl-label { transition: none; } }
+
+/* Partner hero (stile eladiodieste.com) */
+.pth { position: relative; height: 100vh; height: 100svh; min-height: 520px; overflow: hidden; color: #efe6dc; background: #000; }
+.pth__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pth__overlay { position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,.28), rgba(0,0,0,.42)); }
+.pth__title { margin: 0; position: absolute; inset: 0; font: 500 clamp(64px, 20vw, 380px)/.82 "Manrope", sans-serif; letter-spacing: -.06em; pointer-events: none; }
+.pth__w { position: absolute; display: block; overflow: hidden; padding: 0 .02em .06em; white-space: nowrap; }
+.pth__w > span { display: block; transform: translateY(105%); animation: pthIn 1.3s cubic-bezier(.165,.84,.44,1) forwards; }
+.pth__w--top { top: clamp(84px, 9vw, 120px); left: 1.5vw; }
+.pth__w--bottom { bottom: clamp(40px, 5vw, 70px); right: 1.5vw; }
+.pth__w--bottom > span { animation-delay: .15s; }
+@keyframes pthIn { to { transform: none; } }
+.pth__line { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(239,230,220,.75); transform-origin: left; animation: pthLine 1.4s .3s cubic-bezier(.165,.84,.44,1) both; }
+@keyframes pthLine { from { transform: scaleX(0); } }
+.pth__nav { position: absolute; left: 3vw; right: 3vw; top: calc(50% - 30px); display: flex; justify-content: space-between; }
+.pth__nav a { font: 500 12px/1 "Manrope", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #efe6dc; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.pth__nav a::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pth__nav a:hover, .pth__nav a[aria-current] { opacity: .7; }
+.pth__intro { position: absolute; left: 3vw; top: calc(50% + 22px); max-width: 300px; margin: 0; font: 400 13px/1.55 "Manrope", sans-serif; color: rgba(239,230,220,.85); }
+.pth__copy { position: absolute; left: 3vw; bottom: 20px; margin: 0; font: 500 12px/1 "Manrope", sans-serif; color: #efe6dc; }
+@media (max-width: 760px) {
+  .pth__nav { gap: 10px; flex-wrap: wrap; justify-content: flex-start; column-gap: 18px; }
+  .pth__intro { max-width: 70vw; }
+  .pth__copy { bottom: auto; top: calc(50% + 110px); }
+}
+@media (prefers-reduced-motion: reduce) { .pth__w > span, .pth__line { animation: none; transform: none; } }
+
+.ptl-village { display: flex; flex-direction: column; justify-content: center; gap: clamp(100px, 22vh, 260px); min-height: 120vh; padding: 18vh 0; }
+.ptl-step figcaption { max-width: 28ch; }
+.ptl-name { font-weight: 400; }
+.ptl-count { opacity: .75; }
+
+/* === Timeline chiarezza: indicatore paese + testo sincronizzato (202610231610) === */
+/* solo il paese attivo è visibile al centro: niente nomi "fantasma" del paese successivo */
+.ptl-label { opacity: 0; transition: opacity .55s cubic-bezier(.165,.84,.44,1); }
+.ptl-label.is-active { opacity: 1; }
+.ptl-label.is-past, .ptl-label.is-next { opacity: 0; }
+
+/* indicatore persistente in basso a sinistra */
+.ptl-hud { position: absolute; left: clamp(18px, 3vw, 44px); bottom: clamp(22px, 4vh, 44px); z-index: 3; display: grid; gap: 6px; width: min(260px, 40vw); color: #efe6dc; font-family: "Manrope", sans-serif; opacity: 0; transform: translateY(10px); transition: opacity .5s cubic-bezier(.165,.84,.44,1), transform .5s cubic-bezier(.165,.84,.44,1); }
+.ptl.is-in-view .ptl-hud { opacity: 1; transform: none; }
+.ptl-hud__index { display: flex; align-items: baseline; gap: 8px; font-variant-numeric: tabular-nums; }
+.ptl-hud__cur { font-size: clamp(34px, 3.6vw, 52px); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+.ptl-hud__tot { font-size: 13px; letter-spacing: .12em; opacity: .6; }
+.ptl-hud__name { font-size: 15px; font-weight: 600; letter-spacing: .02em; }
+.ptl-hud__count { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; opacity: .65; }
+.ptl-hud__bar { position: relative; display: block; height: 1px; margin-top: 6px; background: rgba(239,230,220,.25); overflow: hidden; }
+.ptl-hud__fill { position: absolute; inset: 0; background: #efe6dc; transform-origin: left; transform: scaleX(0); transition: transform .8s cubic-bezier(.165,.84,.44,1); }
+.ptl-hud.is-swap .ptl-hud__cur, .ptl-hud.is-swap .ptl-hud__name, .ptl-hud.is-swap .ptl-hud__count { animation: ptlHudIn .6s cubic-bezier(.165,.84,.44,1) both; }
+@keyframes ptlHudIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.ptl-hud > span { display: block; }
+.ptl-hud__index { display: flex !important; }
+
+/* testi: compaiono solo quando il loro paese è al centro, larghezza limitata */
+.ptl-village { position: relative; }
+.ptl-step figcaption { max-width: 30ch; opacity: 0; transform: translateY(14px); transition: opacity .6s cubic-bezier(.165,.84,.44,1), transform .6s cubic-bezier(.165,.84,.44,1); }
+.ptl-village.is-current .ptl-step figcaption { opacity: 1; transform: none; transition-delay: .15s; }
+.ptl-step figcaption strong { font-size: 13px; }
+.ptl-step figcaption li { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* foto dei paesi non attivi leggermente attenuate per capire dove si è */
+.ptl-step img { transition: opacity .6s cubic-bezier(.165,.84,.44,1), filter .6s; }
+.ptl-village:not(.is-current) .ptl-step img { opacity: .45; filter: grayscale(.6); }
+
+@media (max-width: 760px) {
+  .ptl-hud { left: 16px; right: auto; bottom: 18px; width: 46vw; gap: 4px; }
+  .ptl-hud__cur { font-size: 30px; }
+  .ptl-hud__name { font-size: 13px; }
+  .ptl-step figcaption { max-width: none; font-size: 11.5px; }
+  .ptl-step.is-lg, .ptl-step.is-md { width: 72vw; }
+  .ptl-step.is-sm { width: 54vw; }
+  .ptl-village { gap: 16vh; }
+  .ptl-name { font-size: clamp(36px, 11vw, 56px); }
+}
+@media (prefers-reduced-motion: reduce) { .ptl-hud, .ptl-step figcaption, .ptl-step img { transition: none; } }
+@media (max-width: 760px) {
+  .ptl-hud { padding: 10px 12px 12px; border-radius: 14px; background: rgba(0,0,0,.55); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); width: auto; min-width: 140px; }
+}
+
+/* === Spaziatura compatta tra i paesi: niente schermate nere vuote (202610231640) === */
+/* Causa: .ptl-track gap 110vh + .ptl-village padding 18vh×2 / min-height 120vh → ~0.8–1 schermata vuota tra un paese e l'altro */
+.ptl-track { padding: 32vh 0 40vh; gap: clamp(90px, 14vh, 160px); }
+.ptl-village { min-height: 0; padding: 0; gap: clamp(56px, 11vh, 130px); }
+.ptl-village:not(.is-current) .ptl-step img { opacity: .62; filter: grayscale(.45); }
+@media (max-width: 760px) {
+  .ptl-track { padding: 28vh 0 34vh; gap: 12vh; }
+  .ptl-village { gap: 9vh; }
+}

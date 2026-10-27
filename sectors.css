@@ -1,0 +1,185 @@
+.sectors-section {
+  background: #f2efe9;
+  padding: 72px 40px 88px;
+}
+
+.sectors-intro {
+  max-width: min(1100px, 100%);
+  margin: 0 auto 40px;
+  text-align: center;
+  color: #1a1714;
+}
+
+.sectors-intro h2 {
+  margin: 0 0 14px;
+  font-family: "Bodoni Moda", "Cormorant Garamond", serif;
+  font-size: clamp(1.55rem, 2.6vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: #1a1714;
+  white-space: nowrap;
+}
+
+.sectors-intro p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.sectors-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+a.sector-card {
+  --c1: #2f8f74;
+  --c2: #1f6a55;
+  position: relative;
+  isolation: isolate;
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  aspect-ratio: 5 / 7;
+  overflow: hidden;
+  border-radius: 28px;
+  color: #fff !important;
+  text-decoration: none !important;
+  background: #fff;
+  transition: border-radius 0.35s ease, transform 0.35s ease;
+}
+
+a.sector-card.sector-card--green { --c1: #3a9b7e; --c2: #216853; }
+a.sector-card.sector-card--blue { --c1: #4aa6cd; --c2: #2a7aa3; }
+a.sector-card.sector-card--coral { --c1: #e79079; --c2: #cf6a52; }
+a.sector-card.sector-card--gold { --c1: #d7a94f; --c2: #b6842f; }
+a.sector-card.sector-card--purple { --c1: #9a7bc8; --c2: #6f4fa0; }
+
+.sector-card__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--sector-img);
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  transition: opacity 0.35s ease, transform 0.45s ease;
+}
+
+.sector-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,11,11,0.2) 0%, rgba(11,11,11,0.55) 55%, rgba(11,11,11,0.82) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(11, 11, 11, 0.15) 0%,
+    rgba(11, 11, 11, 0.35) 35%,
+    color-mix(in srgb, var(--c2) 78%, #000) 100%
+  );
+}
+
+.sector-card__wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.72) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--c1) 55%, transparent) 45%,
+    color-mix(in srgb, var(--c2) 88%, #000) 100%
+  );
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.sector-card__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: clamp(18px, 1.4vw, 28px) clamp(14px, 1.2vw, 22px) clamp(20px, 2vw, 28px);
+  box-sizing: border-box;
+}
+
+.sector-card__title {
+  margin: 0 0 20px;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(20px, 1.6vw, 32px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.sector-card__text {
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(13px, 0.95vw, 16px);
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+}
+
+.sector-card__btn {
+  margin-top: auto;
+  align-self: flex-start;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #111;
+  box-shadow: none;
+  text-decoration: none !important;
+  overflow: visible;
+}
+
+@media (hover: hover) {
+  a.sector-card:hover {
+    border-radius: 0 88px;
+    transform: translateY(-4px);
+  }
+  a.sector-card:hover .sector-card__media { transform: scale(1.04); }
+  a.sector-card:hover .sector-card__btn { transform: none; }
+}
+
+@media (max-width: 1100px) {
+  .sectors-section { padding: 56px 20px 64px; }
+  .sectors-grid { flex-wrap: wrap; }
+  a.sector-card {
+    flex: 1 1 calc(33.333% - 16px);
+    max-width: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .sectors-grid { gap: 14px; flex-wrap: wrap; }
+  a.sector-card {
+    flex: 1 1 calc(50% - 14px);
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 480px) {
+  a.sector-card {
+    flex: 1 1 100%;
+  }
+}

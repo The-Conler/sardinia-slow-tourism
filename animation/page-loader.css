@@ -1,0 +1,109 @@
+body.is-loading {
+  overflow: hidden;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  background:
+    radial-gradient(circle at top left, rgba(219, 186, 148, 0.16), transparent 32%),
+    linear-gradient(180deg, #120d09 0%, #1b130d 100%);
+  color: #fff;
+}
+
+.loader-inner {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.loader-brand {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.loader-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 8px;
+}
+
+.loader-count {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+}
+
+.loader-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.loader-places {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.loader-places-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.loader-places-window {
+  position: relative;
+  min-width: 260px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.loader-place {
+  position: absolute;
+  right: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.3rem, 4vw, 4.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.88);
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.loader-place.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loader-bar {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  transform-origin: left center;
+}

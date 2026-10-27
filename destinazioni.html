@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="it" style="--top-color:#91a2b2">
+  <head>
+    <link rel="stylesheet" href="./site-gate.css?v=202610271850" />
+    <script src="./site-gate.js?v=202610271850"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#91a2b2" />
+    <title>Destinazioni | Sardinia Slow Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=202610231605" />
+    <link rel="stylesheet" href="./navigation-drawer.css?v=202610152045" />
+  
+<style id="dest-nav-pill">
+.destinations-body .navigation-drawer .nav-toggle {
+  background: #fff !important;
+  color: #111 !important;
+  box-shadow: 0 2px 14px rgba(0,0,0,.12);
+}
+.destinations-body .navigation-drawer[data-open="true"] .nav-toggle {
+  background: #111 !important;
+  color: #fff !important;
+}
+</style>
+    <link rel="stylesheet" href="./mobile-fixes.css?v=202610271850" />
+  </head>
+  <body class="detail-body destinations-body">
+    
+    <div class="navigation-drawer" data-drawer>
+      <button
+        class="nav-toggle"
+        type="button"
+        data-drawer-toggle
+        aria-controls="resource-drawer"
+        aria-expanded="false"
+        aria-label="Apri menu"
+      >
+        <span class="toggle-label">
+          <span class="label-wrap">
+            <span class="label">
+              <span>Menu</span>
+              <span aria-hidden="true">Menu</span>
+            </span>
+          </span>
+        </span>
+        <span class="toggle-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </span>
+      </button>
+
+      <div class="drawer-layer">
+        <button
+          class="shade"
+          type="button"
+          data-drawer-backdrop
+          data-drawer-close
+          tabindex="-1"
+          aria-label="Chiudi navigazione"
+        ></button>
+
+        <aside
+          class="panel"
+          id="resource-drawer"
+          data-drawer-panel
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="drawer-title"
+          aria-hidden="true"
+        >
+          <p class="eyebrow" id="drawer-title" data-drawer-item>
+            <span class="item-reveal">Navigazione</span>
+          </p>
+
+          <nav class="link-stack" aria-label="Menu principale">
+            <a class="link-row" data-drawer-item href="./index.html">
+              <span class="item-reveal">
+                <span class="item-label">Home</span>
+              </span>
+            </a>
+            <a class="link-row" data-drawer-item href="./destinazioni.html">
+              <span class="item-reveal">
+                <span class="item-label">Esperienze</span>
+              </span>
+            </a>
+            <a class="link-row" data-drawer-item href="./partner.html">
+              <span class="item-reveal">
+                <span class="item-label">Destinazioni</span>
+              </span>
+            </a>
+            <a class="link-row" data-drawer-item href="./contact.html">
+              <span class="item-reveal">
+                <span class="item-label">Contatti</span>
+              </span>
+            </a>
+          </nav>
+
+          <div class="panel-line" aria-hidden="true"></div>
+
+          <div class="panel-foot">
+            <div class="socials" aria-label="Social">
+              <a data-drawer-item href="#" aria-disabled="true">
+                <span class="item-reveal">
+                  <span class="item-label"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" style="display:inline-block;vertical-align:-3px;margin-right:10px"><path fill="currentColor" d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm5.3-8.2a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM12 3.5c-2.3 0-2.6.01-3.5.05a5.3 5.3 0 0 0-3.5 1.3 5.3 5.3 0 0 0-1.3 3.5c-.04.9-.05 1.2-.05 3.5s.01 2.6.05 3.5a5.3 5.3 0 0 0 1.3 3.5 5.3 5.3 0 0 0 3.5 1.3c.9.04 1.2.05 3.5.05s2.6-.01 3.5-.05a5.3 5.3 0 0 0 3.5-1.3 5.3 5.3 0 0 0 1.3-3.5c.04-.9.05-1.2.05-3.5s-.01-2.6-.05-3.5a5.3 5.3 0 0 0-1.3-3.5 5.3 5.3 0 0 0-3.5-1.3c-.9-.04-1.2-.05-3.5-.05Zm0 1.5c2.26 0 2.53.01 3.42.05a3.8 3.8 0 0 1 2.53 2.53c.04.89.05 1.16.05 3.42s-.01 2.53-.05 3.42a3.8 3.8 0 0 1-2.53 2.53c-.89.04-1.16.05-3.42.05s-2.53-.01-3.42-.05a3.8 3.8 0 0 1-2.53-2.53c-.04-.89-.05-1.16-.05-3.42s.01-2.53.05-3.42a3.8 3.8 0 0 1 2.53-2.53c.89-.04 1.16-.05 3.42-.05Z"/></svg>Instagram</span>
+                </span>
+              </a>
+              <a data-drawer-item href="#" aria-disabled="true">
+                <span class="item-reveal">
+                  <span class="item-label"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" style="display:inline-block;vertical-align:-3px;margin-right:10px"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02Zm-7.01 15.24h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.53 3.69-8.21 8.23-8.21 2.2 0 4.26.86 5.81 2.41a8.16 8.16 0 0 1 2.4 5.81c0 4.53-3.69 8.23-8.21 8.23Zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74 1.49.64 2.08.7 2.83.59.43-.07 1.46-.6 1.67-1.17.21-.58.21-1.07.14-1.17-.06-.11-.23-.17-.48-.29Z"/></svg>WhatsApp</span>
+                </span>
+              </a>
+              <a data-drawer-item href="#" aria-disabled="true">
+                <span class="item-reveal">
+                  <span class="item-label"><svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" style="display:inline-block;vertical-align:-3px;margin-right:10px"><path fill="currentColor" d="M14.5 9.5V7.8c0-.6.1-1 1-1h1.5V4h-2.1C12.1 4 11 5.4 11 7.6v1.9H9v2.7h2V20h3.5v-7.8h2.3l.4-2.7h-2.7Z"/></svg>Facebook</span>
+                </span>
+              </a>
+            </div>
+
+            <div class="wrapper">
+              <div class="cta-reveal" data-drawer-item>
+                <span class="item-reveal">
+                  <a class="button-02 drawer-cta" href="./contact.html">
+                    <span class="inner">
+                      <span class="label-wrap">
+                        <span class="label">Contattaci</span>
+                      </span>
+                    </span>
+                    <span class="circle">
+                      <span aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </span>
+                    </span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="page">
+      <main class="page-content">
+<header class="site-header site-header--glass" id="top">
+      <div class="shell nav-shell nav-shell--mfs">
+        <a class="brand brand--center" href="./index.html">Sardinia<br /><span class="brand__sub">Slow Tourism</span></a>
+      </div>
+    </header>
+
+<div class="destinations-page">
+      <section class="destinations-hero destinations-hero--home" aria-label="Destinazioni">
+        <div class="destinations-hero-media has-partner-image">
+          <img src="./images/destinations/barbagia-pascoli.jpg" alt="" width="4000" height="2248" fetchpriority="high" decoding="async" />
+        </div>
+        <div class="destinations-hero-overlay"></div>
+        <div class="shell destinations-hero-copy destinations-hero-copy--home">
+          <p class="hero-eyebrow">Destinazioni</p>
+          <h1 class="hero-statement">Esplora esperienze<br />nella Barbagia.</h1>
+          <p class="hero-lede">Borghi, sentieri, soggiorni e attività nell’interno della Sardegna. Filtra per paese o per tipo di esperienza e trova il percorso più adatto a te.</p>
+        </div>
+      </section>
+
+      <section class="section destinations-list-section">
+        <div class="shell">
+          <div class="destination-filter-panel" aria-label="Filtri destinazioni">
+            <div class="destination-filter-intro">
+              <p class="destination-filter-eyebrow">Filtra</p>
+              <h2>Trova l’esperienza giusta</h2>
+              <p>Per esperienza o paese, senza scorrere tutto.</p>
+            </div>
+
+
+
+            <div class="destination-filter-group">
+              <span>Esperienza</span>
+              <div class="destination-filter-row" role="list">
+                <button class="destination-filter-button is-active" type="button" data-destination-filter="experience" data-filter-value="all" aria-pressed="true">Tutte</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="experience" data-filter-value="trekking" aria-pressed="false">Trekking</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="experience" data-filter-value="cooking-class" aria-pressed="false">Cooking Class</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="experience" data-filter-value="food-tasting" aria-pressed="false">Food Tasting</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="experience" data-filter-value="outdoor" aria-pressed="false">Outdoor</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="experience" data-filter-value="artigianato" aria-pressed="false">Artigianato</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="experience" data-filter-value="winery" aria-pressed="false">Winery</button>
+              </div>
+            </div>
+
+            <div class="destination-filter-group">
+              <span>Paese</span>
+              <div class="destination-filter-row" role="list">
+                <button class="destination-filter-button is-active" type="button" data-destination-filter="town" data-filter-value="all">Tutti</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="seulo">Seulo</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="gadoni">Gadoni</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="aritzo">Aritzo</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="belvi">Belvi</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="desulo">Desulo</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="tonara">Tonara</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="ovodda">Ovodda</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="tiana">Tiana</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="austis">Austis</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="atzara">Atzara</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="sorgono">Sorgono</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="samugheo">Samugheo</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="ortueri">Ortueri</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="teti">Teti</button>
+                <button class="destination-filter-button" type="button" data-destination-filter="town" data-filter-value="meana-sardo">Meana Sardo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="destination-results-grid">
+            <article class="destination-list-card" data-destination-card data-town="aritzo" data-experience="outdoor" data-link="./spinazzola.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/spinazzola/02.webp" alt="" width="1024" height="768" loading="lazy" decoding="async"><div class="destination-list-brand"><div class="destination-list-logo">LB</div><div class="destination-list-brand-copy"><strong>La Baita</strong><span>Sardinia Slow Tourism</span></div></div></div>
+              <div class="destination-list-copy"><div><div class="destination-list-meta"><span class="destination-list-tag">Outdoor</span></div><h3>La Baita</h3><p>Scopri i luoghi e la galleria fotografica della Baita.</p></div><a class="circle-link" href="./spinazzola.html" aria-label="Apri La Baita"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a></div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="seulo" data-experience="outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">EA</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Ecomuseo Alto Flumendosa</strong>
+                    <span>Societa cooperativa</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Seulo</span>
+                    <span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Ecomuseo Alto Flumendosa</h3>
+                  <p>Visite guidate, eventi e percorsi tematici tra acqua, geologia, paesaggi e tradizioni.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="desulo" data-experience="outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">BE</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Barbagia Express</strong>
+                    <span>Tour operator</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Desulo</span>
+                    <span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Barbagia Express</h3>
+                  <p>Transfer, Trenino Verde e viaggi tailor made per scoprire l'interno della Sardegna.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="ovodda" data-experience="trekking outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">EO</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Escursioni Ovodda</strong>
+                    <span>Guida naturalistica</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Ovodda</span>
+                    <span class="destination-list-tag">Trekking</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Escursioni Ovodda</h3>
+                  <p>Escursioni per tutti, anche inclusive, con percorsi da poche ore a piu giorni.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="aritzo" data-experience="trekking food-tasting artigianato">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">EI</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Educare Insieme</strong>
+                    <span>Esperienze e visite guidate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Aritzo</span>
+                    <span class="destination-list-tag">Trekking</span><span class="destination-list-tag">Food Tasting</span><span class="destination-list-tag">Artigianato</span>
+                  </div>
+                  <h3>Educare Insieme</h3>
+                  <p>Visite guidate, trekking urbano, degustazioni e laboratori legati al territorio.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="meana-sardo" data-experience="winery food-tasting">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">FV</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Fulghesu Le Vigne</strong>
+                    <span>Cantina e degustazioni</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Meana Sardo</span>
+                    <span class="destination-list-tag">Winery</span><span class="destination-list-tag">Food Tasting</span>
+                  </div>
+                  <h3>Fulghesu Le Vigne</h3>
+                  <p>Visita ai vigneti e alla cantina con degustazione guidata di vini e abbinamenti.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card" data-destination-card data-town="belvi" data-experience="cooking-class food-tasting" data-link="./hotel-ristorante-edera.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/hotel-ristorante-edera/02.webp" alt="" width="1920" height="1079" loading="lazy" decoding="async">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo has-logo logo-hotel-ristorante-edera"><img src="./images/partners/logos/hotel-ristorante-edera.png" alt="" width="72" height="48" loading="lazy" decoding="async"></div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Hotel Edera</strong>
+                    <span>Ospitalita e cucina tipica</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Belvi</span>
+                    <span class="destination-list-tag">Cooking Class</span><span class="destination-list-tag">Food Tasting</span>
+                  </div>
+                  <h3>Hotel Ristorante Edera</h3>
+                  <p>Camere, cucina tipica e esperienze pensate per vivere il territorio con calma.</p>
+                </div>
+                <a class="circle-link" href="./hotel-ristorante-edera.html" aria-label="Apri Hotel Ristorante Edera"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="samugheo" data-experience="cooking-class food-tasting outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">CM</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Casu Mandrolisai</strong>
+                    <span>Caseificio agricolo</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Samugheo</span>
+                    <span class="destination-list-tag">Cooking Class</span><span class="destination-list-tag">Food Tasting</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Casu Mandrolisai</h3>
+                  <p>Visita aziendale, laboratorio e degustazione tra pascoli, caseificio e vino.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card" data-destination-card data-town="seulo" data-experience="artigianato" data-link="./su-tessingiu.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/su-tessingiu/01.webp" alt="" width="1600" height="1200" loading="lazy" decoding="async">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo has-logo logo-su-tessingiu"><img src="./images/partners/logos/su-tessingiu.png" alt="" width="72" height="48" loading="lazy" decoding="async"></div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Su Tessingiu</strong>
+                    <span>Tessitura artigianale</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Seulo</span>
+                    <span class="destination-list-tag">Artigianato</span>
+                  </div>
+                  <h3>Su Tessingiu</h3>
+                  <p>Laboratori e dimostrazioni di tessitura artigianale nel cuore del paese.</p>
+                </div>
+                <a class="circle-link" href="./su-tessingiu.html" aria-label="Apri Su Tessingiu"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="atzara" data-experience="food-tasting">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">FL</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Flore de Logu</strong>
+                    <span>Degustazione e salumi</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Atzara</span>
+                    <span class="destination-list-tag">Food Tasting</span>
+                  </div>
+                  <h3>Flore de Logu</h3>
+                  <p>Accoglienza e degustazione di prodotti tipici con racconto del territorio e della famiglia.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="gadoni" data-experience="cooking-class outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo has-logo logo-sa-burra"><img src="./images/partners/logos/sa-burra.png" alt="" width="72" height="48" loading="lazy" decoding="async"></div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Sa Burra Locanda</strong>
+                    <span>Ospitalita di paese</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Gadoni</span>
+                    <span class="destination-list-tag">Cooking Class</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Sa Burra Locanda</h3>
+                  <p>Una base accogliente per vivere Gadoni e il territorio con un ritmo piu lento e autentico.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="belvi" data-experience="trekking outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">BO</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Barbagia Ospitale</strong>
+                    <span>Ospitalita diffusa</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Belvi</span>
+                    <span class="destination-list-tag">Trekking</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Barbagia Ospitale</h3>
+                  <p>Un modo di soggiornare che mette al centro il paese, le relazioni locali e il tempo del viaggio.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card" data-destination-card data-town="austis" data-experience="trekking outdoor" data-link="./gabriele-sanna.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/gabriele-sanna/01.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">GS</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Gabriele Sanna</strong>
+                    <span>Guida ambientale escursionistica</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Austis</span>
+                    <span class="destination-list-tag">Trekking</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Gabriele Sanna</h3>
+                  <p>Percorsi guidati tra sentieri, paesaggi interni e letture del territorio costruite passo dopo passo.</p>
+                </div>
+                <a class="circle-link" href="./gabriele-sanna.html" aria-label="Apri Gabriele Sanna"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="belvi" data-experience="trekking outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">BT</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>ASD BelviTrail</strong>
+                    <span>Outdoor e sentieri</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Belvi</span>
+                    <span class="destination-list-tag">Trekking</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>ASD BelviTrail</h3>
+                  <p>Cammini, trail e attivita all'aperto pensati per scoprire il territorio in movimento.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="sorgono" data-experience="outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">AG</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Agitoriu APS</strong>
+                    <span>Associazione culturale</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Sorgono</span>
+                    <span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Agitoriu APS</h3>
+                  <p>Progetti, incontri e attivita che valorizzano il territorio attraverso pratiche culturali condivise.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card" data-destination-card data-town="tonara" data-experience="artigianato" data-link="./la-robbia.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/la-robbia/03.webp" alt="" width="1920" height="1401" loading="lazy" decoding="async">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo has-logo logo-la-robbia"><img src="./images/partners/logos/la-robbia.png" alt="" width="72" height="48" loading="lazy" decoding="async"></div>
+                  <div class="destination-list-brand-copy">
+                    <strong>La Robbia</strong>
+                    <span>Tinture naturali</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Tonara</span>
+                    <span class="destination-list-tag">Artigianato</span>
+                  </div>
+                  <h3>La Robbia Tinture Naturali</h3>
+                  <p>Un laboratorio che racconta colori, materie e saperi artigianali attraverso la tintura naturale.</p>
+                </div>
+                <a class="circle-link" href="./la-robbia.html" aria-label="Apri La Robbia Tinture Naturali"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+              </div>
+            </article>
+
+            <article class="destination-list-card" data-destination-card data-town="atzara" data-experience="winery food-tasting" data-link="./fradiles.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/fradiles/05.webp" alt="" width="1920" height="1281" loading="lazy" decoding="async">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo has-logo logo-fradiles"><img src="./images/partners/logos/fradiles.png" alt="" width="72" height="48" loading="lazy" decoding="async"></div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Fradiles</strong>
+                    <span>Azienda agricola e vini</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Atzara</span>
+                    <span class="destination-list-tag">Winery</span><span class="destination-list-tag">Food Tasting</span>
+                  </div>
+                  <h3>Fradiles SRL Agricola</h3>
+                  <p>Vigneti, racconti di territorio e degustazioni che mettono in dialogo vino, paesaggio e identita.</p>
+                </div>
+                <a class="circle-link" href="./fradiles.html" aria-label="Apri Fradiles SRL Agricola"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="sorgono" data-experience="winery food-tasting">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">CS</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Cantina Sassu</strong>
+                    <span>Wine tasting experience</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Sorgono</span>
+                    <span class="destination-list-tag">Winery</span><span class="destination-list-tag">Food Tasting</span>
+                  </div>
+                  <h3>Cantina Sassu</h3>
+                  <p>Un'esperienza dedicata al vino e al racconto del territorio, tra cantina, calici e paesaggio.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="samugheo" data-experience="cooking-class food-tasting outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">CF</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Caseificio Artigianale</strong>
+                    <span>Fattoria didattica</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Samugheo</span>
+                    <span class="destination-list-tag">Cooking Class</span><span class="destination-list-tag">Food Tasting</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Caseificio Artigianale E Fattoria Didattica</h3>
+                  <p>Un'esperienza tra animali, lavorazione artigianale e racconto concreto della vita in azienda.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="desulo" data-experience="trekking outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">BS</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Barbagia Slow Tour</strong>
+                    <span>Tour e itinerari</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Desulo</span>
+                    <span class="destination-list-tag">Trekking</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Barbagia Slow Tour</h3>
+                  <p>Itinerari lenti tra paesi, paesaggi interni e incontri costruiti attorno al territorio.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="desulo" data-experience="food-tasting outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">ES</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Esulesos</strong>
+                    <span>Memoria e territorio</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Desulo</span>
+                    <span class="destination-list-tag">Food Tasting</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Esulesos</h3>
+                  <p>Un percorso che intreccia identita locale, racconto e radici culturali nel cuore dell'interno.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card" data-destination-card data-town="meana-sardo" data-experience="outdoor artigianato" data-link="./percorso-archeo-etnografico.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/percorso-archeo-etnografico/11.webp" alt="" width="1920" height="1438" loading="lazy" decoding="async">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo has-logo logo-ortuabis"><img src="./images/partners/logos/ortuabis.png" alt="" width="72" height="48" loading="lazy" decoding="async"></div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Percorso Archeo-Etnografico</strong>
+                    <span>Meana Sardo</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Meana Sardo</span>
+                    <span class="destination-list-tag">Outdoor</span><span class="destination-list-tag">Artigianato</span>
+                  </div>
+                  <h3>Percorso Archeo-Etnografico</h3>
+                  <p>Una lettura del territorio tra tracce archeologiche, memoria materiale e vita di paese.</p>
+                </div>
+                <a class="circle-link" href="./percorso-archeo-etnografico.html" aria-label="Apri Percorso Archeo-Etnografico"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+              </div>
+            </article>
+
+            <article class="destination-list-card" data-destination-card data-town="seulo" data-experience="artigianato" data-link="./isabella-frongia.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/isabella-frongia/03.webp" alt="" width="1920" height="1440" loading="lazy" decoding="async">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">IF</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Isabella Frongia</strong>
+                    <span>Laboratorio tessile</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Seulo</span>
+                    <span class="destination-list-tag">Artigianato</span>
+                  </div>
+                  <h3>Laboratorio Tessile Isabella Frongia</h3>
+                  <p>Un incontro con fili, manualita e tecniche tessili che raccontano il sapere artigiano locale.</p>
+                </div>
+                <a class="circle-link" href="./isabella-frongia.html" aria-label="Apri Laboratorio Tessile Isabella Frongia"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="ovodda" data-experience="outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">UC</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>ASD Uccile</strong>
+                    <span>Outdoor e territorio</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Ovodda</span>
+                    <span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>ASD Uccile</h3>
+                  <p>Attivita e percorsi all'aperto legati al movimento, al paesaggio e alla scoperta del territorio.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card" data-destination-card data-town="tonara" data-experience="outdoor" data-link="./coa-sa-mandara.html">
+              <div class="destination-list-media has-partner-image"><img src="./images/partners/coa-sa-mandara/03.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">CM</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Coa sa Mandara</strong>
+                    <span>Esperienza rurale</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Tonara</span>
+                    <span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Coa sa Mandara</h3>
+                  <p>Un'esperienza legata al paesaggio rurale, ai gesti quotidiani e al contatto con l'ambiente interno.</p>
+                </div>
+                <a class="circle-link" href="./coa-sa-mandara.html" aria-label="Apri Coa sa Mandara"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="ovodda" data-experience="outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">IA</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Interventi Assistiti</strong>
+                    <span>Con gli animali</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Ovodda</span>
+                    <span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Interventi Assistiti Con Gli Animali</h3>
+                  <p>Un'attivita che mette al centro relazione, benessere e contatto con gli animali in modo guidato.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="teti" data-experience="artigianato">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">MT</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Museo e Gualchiera</strong>
+                    <span>Teti e Tiana</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Teti</span>
+                    <span class="destination-list-tag">Artigianato</span>
+                  </div>
+                  <h3>Museo Di Teti E Gualchiera Di Tiana</h3>
+                  <p>Un percorso tra patrimonio materiale, memoria locale e luoghi che raccontano il lavoro e la vita del territorio.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+
+            <article class="destination-list-card is-disabled" aria-disabled="true" data-destination-card data-town="sorgono" data-experience="winery outdoor">
+              <div class="destination-list-media">
+                <div class="destination-list-brand">
+                  <div class="destination-list-logo">QP</div>
+                  <div class="destination-list-brand-copy">
+                    <strong>Quarantesimo Parallelo</strong>
+                    <span>Progetto culturale</span>
+                  </div>
+                </div>
+              </div>
+              <div class="destination-list-copy">
+                <div>
+                  <div class="destination-list-meta">
+                    <span class="destination-list-town">Sorgono</span>
+                    <span class="destination-list-tag">Winery</span><span class="destination-list-tag">Outdoor</span>
+                  </div>
+                  <h3>Quarantesimo Parallelo</h3>
+                  <p>Un progetto che intreccia linguaggi culturali, territorio e nuove modalita di racconto dell'interno.</p>
+                </div>
+                <span class="circle-link is-disabled" aria-hidden="true"><svg class="ico-ne" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>
+              </div>
+            </article>
+          </div>
+
+          <div class="destination-empty-state is-hidden" data-destination-empty>
+            <h3>Nessun risultato per questo filtro</h3>
+            <p>Prova a cambiare paese o esperienza, oppure torna su “Tutti” per vedere di nuovo tutte le proposte.</p>
+            <button class="destination-filter-button" type="button" data-destination-reset>Mostra Tutto</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+                <footer class="site-footer" id="footer">
+      <div class="shell footer-grid">
+        <section class="footer-brand-block">
+          <a class="brand footer-brand" href="./index.html">Sardinia Slow Tourism</a>
+          <p class="footer-tagline">Soggiorni di paese, itinerari culturali e slow travel nel cuore della Sardegna.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram" aria-disabled="true" title="Instagram (URL da inserire)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm5.3-8.2a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM12 3.5c-2.3 0-2.6.01-3.5.05a5.3 5.3 0 0 0-3.5 1.3 5.3 5.3 0 0 0-1.3 3.5c-.04.9-.05 1.2-.05 3.5s.01 2.6.05 3.5a5.3 5.3 0 0 0 1.3 3.5 5.3 5.3 0 0 0 3.5 1.3c.9.04 1.2.05 3.5.05s2.6-.01 3.5-.05a5.3 5.3 0 0 0 3.5-1.3 5.3 5.3 0 0 0 1.3-3.5c.04-.9.05-1.2.05-3.5s-.01-2.6-.05-3.5a5.3 5.3 0 0 0-1.3-3.5 5.3 5.3 0 0 0-3.5-1.3c-.9-.04-1.2-.05-3.5-.05Zm0 1.5c2.26 0 2.53.01 3.42.05a3.8 3.8 0 0 1 2.53 2.53c.04.89.05 1.16.05 3.42s-.01 2.53-.05 3.42a3.8 3.8 0 0 1-2.53 2.53c-.89.04-1.16.05-3.42.05s-2.53-.01-3.42-.05a3.8 3.8 0 0 1-2.53-2.53c-.04-.89-.05-1.16-.05-3.42s.01-2.53.05-3.42a3.8 3.8 0 0 1 2.53-2.53c.89-.04 1.16-.05 3.42-.05Z"/></svg>
+            </a>
+            <a href="#" aria-label="WhatsApp" aria-disabled="true" title="WhatsApp (URL da inserire)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02Zm-7.01 15.24h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.53 3.69-8.21 8.23-8.21 2.2 0 4.26.86 5.81 2.41a8.16 8.16 0 0 1 2.4 5.81c0 4.53-3.69 8.23-8.21 8.23Zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74 1.49.64 2.08.7 2.83.59.43-.07 1.46-.6 1.67-1.17.21-.58.21-1.07.14-1.17-.06-.11-.23-.17-.48-.29Z"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" aria-disabled="true" title="Facebook (URL da inserire)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M14.5 9.5V7.8c0-.6.1-1 1-1h1.5V4h-2.1C12.1 4 11 5.4 11 7.6v1.9H9v2.7h2V20h3.5v-7.8h2.3l.4-2.7h-2.7Z"/></svg>
+            </a>
+          </div>
+        </section>
+
+        <section>
+          <h3>Naviga</h3>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./contact.html">Contatti</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Scopri</h3>
+          <ul>
+            <li><a href="./destinazioni.html">Esperienze</a></li>
+            <li><a href="./partner.html">Destinazioni</a></li>
+            <li><a href="./index.html#feste">Feste e sagre</a></li>
+            <li><a href="./index.html#paesi">I nostri paesi</a></li>
+          </ul>
+        </section>
+
+        <section class="footer-company">
+          <h3>Barbagia Ospitale Srls</h3>
+          <ul class="footer-company__list">
+            <li>Partita IVA / Codice Fiscale: 01587000918</li>
+            <li>Numero REA: NU - 113250</li>
+            <li>Sede legale: Via Roma 40/A, 08030 Belvì (NU)</li>
+            <li>Contatti: <a href="tel:+393467402408">+39 346 740 2408</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="shell footer-bottom">
+        <p>Copyright &copy; 2026 Sardinia Slow Tourism. Tutti i diritti riservati.</p>
+      </div>
+    </footer>
+        </main>
+      </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="./navigation-drawer.js?v=202610271850"></script>
+    <script defer src="./script.js?v=202610271850"></script>
+  </body>
+</html>
