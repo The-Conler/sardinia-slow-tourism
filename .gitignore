@@ -1,6 +1,8 @@
 _backup_*/
 .DS_Store
 **/.DS_Store
+**/._*
+._*
 backups/
 test-results/
 .claude/
