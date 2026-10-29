@@ -239,3 +239,9 @@ body:has(.navigation-drawer) .site-header.site-header--glass.is-over-light { top
   [data-side-reveal-navigation] .socials a,
   .navigation-drawer .panel-foot .socials a { min-height: 44px; display: flex; align-items: center; }
 }
+
+/* === Home "I nostri paesi": arco sotto il sottotitolo (202610291845) === */
+@media (max-width: 760px) {
+  .village-arc { --va-shift: 96px; height: calc(var(--va-r) * .62 + var(--va-card) + clamp(48px, 7vw, 96px) + 150px + var(--va-shift) + 32px); }
+  .village-arc__wheel { top: calc(clamp(48px, 7vw, 96px) + clamp(140px, 16vw, 210px) + var(--va-r) + var(--va-shift)); }
+}
