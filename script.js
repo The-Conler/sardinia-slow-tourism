@@ -144,7 +144,7 @@ if (destinationFilterButtons.length && destinationCards.length) {
       const experiences = (card.dataset.experience || "").split(" ");
       const experienceMatch =
         destinationFilters.experience === "all" || experiences.includes(destinationFilters.experience);
-      const townMatch = destinationFilters.town === "all" || card.dataset.town === destinationFilters.town;
+      const townMatch = destinationFilters.town === "all" || (card.dataset.town || "").split(" ").includes(destinationFilters.town);
       const isVisible = experienceMatch && townMatch;
 
       card.classList.toggle("is-hidden", !isVisible);
@@ -645,19 +645,12 @@ function initFestivitiesSlider() {
     scroller.style.cursor = "grab";
     wrapIfNeeded();
   });
-  scroller.addEventListener("touchstart", (e) => {
-    dragging = true;
-    startX = e.touches[0].clientX;
-    startLeft = scroller.scrollLeft;
-  }, { passive: true });
-  scroller.addEventListener("touchmove", (e) => {
-    if (!dragging) return;
-    scroller.scrollLeft = startLeft - (e.touches[0].clientX - startX);
-  }, { passive: true });
+  /* Touch: lo scroll orizzontale è nativo (overflow-x); niente scrollLeft manuale,
+     così i gesti verticali scorrono sempre la pagina (202610291900) */
   scroller.addEventListener("touchend", () => {
     dragging = false;
     wrapIfNeeded();
-  });
+  }, { passive: true });
 
   prev.disabled = false;
   next.disabled = false;

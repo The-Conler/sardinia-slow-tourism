@@ -245,3 +245,19 @@ body:has(.navigation-drawer) .site-header.site-header--glass.is-over-light { top
   .village-arc { --va-shift: 96px; height: calc(var(--va-r) * .62 + var(--va-card) + clamp(48px, 7vw, 96px) + 150px + var(--va-shift) + 32px); }
   .village-arc__wheel { top: calc(clamp(48px, 7vw, 96px) + clamp(140px, 16vw, 210px) + var(--va-r) + var(--va-shift)); }
 }
+
+/* === Slider feste: i gesti verticali scorrono la pagina (202610291900) === */
+/* pan-x da solo bloccava lo scroll verticale quando il dito partiva su una card */
+.festivities__viewport { touch-action: pan-x pan-y; overscroll-behavior-x: contain; }
+
+/* === Destinazioni: righe chip davvero scorrevoli su iOS (202610291900) === */
+/* Causa: la riga si allargava al contenuto (1390px) e il pannello overflow:hidden la tagliava → niente da scorrere */
+@media (max-width: 760px) {
+  .destinations-body .destination-filter-panel,
+  .destinations-body .destination-filter-panel > *,
+  .destinations-body .destination-filter-group { min-width: 0; max-width: 100%; }
+  .destinations-body .destination-filter-row {
+    display: flex; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box;
+    touch-action: pan-x pan-y; -webkit-overflow-scrolling: touch;
+  }
+}
