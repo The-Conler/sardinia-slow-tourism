@@ -54,7 +54,7 @@
         '<span class="sg__pill">Anteprima privata</span>' +
         '<h1 class="sg__title" id="sg-title">Area riservata</h1>' +
         '<p class="sg__text">Il sito è in fase di sviluppo. Inserisci la password per continuare.</p>' +
-        '<p class="sg__demo">Questa è una versione demo del sito, ancora in lavorazione: c\'è ancora molto da modificare e completare. Alcuni contenuti (immagini e testi) sono stock o senza licenza e verranno rimossi o sostituiti nella versione finale. Per ora il sito si vede meglio da computer: la versione per telefono è ancora in lavorazione.</p>' +
+        '<p class="sg__demo">Questa è una versione demo del sito, ancora in lavorazione: c\'è ancora molto da modificare e completare. Alcuni contenuti (immagini e testi) sono stock o senza licenza e verranno rimossi o sostituiti nella versione finale. Per ora il sito si vede meglio da computer: la versione per telefono è ancora in lavorazione. I testi attuali sono provvisori: una volta completate tutte le schede faremo il copywriting della home per migliorare SEO e visibilità.</p>' +
         '<form class="sg__form" novalidate>' +
           '<div class="sg__field"><label for="sg-pass" class="sg-visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Password</label>' +
           '<input class="sg__input" id="sg-pass" type="password" placeholder="Password" autocomplete="current-password" required /></div>' +
