@@ -144,7 +144,7 @@ if (destinationFilterButtons.length && destinationCards.length) {
       const experiences = (card.dataset.experience || "").split(" ");
       const experienceMatch =
         destinationFilters.experience === "all" || experiences.includes(destinationFilters.experience);
-      const townMatch = destinationFilters.town === "all" || (card.dataset.town || "").split(" ").includes(destinationFilters.town);
+      const townMatch = destinationFilters.town === "all" || card.dataset.town === destinationFilters.town;
       const isVisible = experienceMatch && townMatch;
 
       card.classList.toggle("is-hidden", !isVisible);
